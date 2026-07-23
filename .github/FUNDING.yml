@@ -1,0 +1,6 @@
+# 💖 Sponsor button configuration
+#
+# Served as the account-wide default: any repository on this account that does
+# not ship its own .github/FUNDING.yml shows this sponsor button.
+
+github: [tannergolden]
