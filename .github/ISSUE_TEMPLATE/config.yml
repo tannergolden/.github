@@ -1,0 +1,39 @@
+# .github/ISSUE_TEMPLATE/config.yml
+#
+# Purpose: steer reporters into the right form, and keep vulnerability reports PRIVATE.
+#
+# These forms are served as ACCOUNT-WIDE DEFAULTS to every repository that does
+# not ship its own .github/ISSUE_TEMPLATE/. GitHub never substitutes placeholders
+# in contact links, so the URLs below intentionally point at this repository -
+# they are a working central intake from anywhere. A repository that wants its
+# own routing should ship its own config.yml, which overrides this one entirely.
+#
+# Deliberately NOT shipped here: a public "Vulnerability Report" issue form.
+# A default form appears in PUBLIC repositories too, where filing one would
+# disclose the vulnerability. Security intake stays private via the links below.
+
+# Note: `blank_issues_enabled: false` hides the blank-issue option from
+# everyone with Read or Triage access. GitHub deliberately still offers it to
+# Write/Maintain/Admin users, badged "Maintainers only" - that is not
+# configurable, so repository owners will always see it in their own chooser.
+#
+# No contact link points at /security/policy: GitHub auto-generates a
+# "Report a security vulnerability" entry whenever a SECURITY.md exists, and a
+# second link to the same page only duplicates it.
+
+blank_issues_enabled: false
+contact_links:
+  # 🔒 Private intake only - never a public issue. Distinct from the
+  # auto-generated policy link: this files the report directly. Requires
+  # private vulnerability reporting to remain enabled on this repository
+  # (Settings → Advanced Security).
+  - name: '🔒 Security Report (Private)'
+    url: 'https://github.com/tannergolden/.github/security/advisories/new'
+    about: 'Report vulnerabilities privately. Name the affected repository in your report. Do NOT open a public issue.'
+  # 💬 Questions belong in Discussions (SUPPORT.md routes them here too) -
+  # with blank issues disabled, this is the chooser's path for how-to asks.
+  # Maintainer note: this link 404s until Discussions is enabled on this
+  # repository (Settings → General → Features).
+  - name: '💬 Questions, Ideas & Support (Discussions)'
+    url: 'https://github.com/tannergolden/.github/discussions'
+    about: 'How-to questions, tooling setup, and ideas belong in Discussions.'
