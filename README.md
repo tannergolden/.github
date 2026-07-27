@@ -65,8 +65,10 @@ Three rules govern everything here:
 1. **This repository must stay public.** Defaults are not served from a private `.github`
    repository, not even to private repositories.
 2. **Files must live on the default branch.** A file on a feature branch is inert.
-3. **Local beats default, per file.** Inheritance is decided file by file: a repository can ship
-   its own `SECURITY.md` and still inherit everything else.
+3. **Local beats default.** For the Markdown documents this is decided file by file: a repository
+   can ship its own `SECURITY.md` and still inherit everything else. The forms are decided per
+   _directory_: a repository that ships a single issue form of its own stops inheriting the whole
+   set, not just the form it replaced.
 
 Issue and discussion forms are path-locked and only work from `.github/ISSUE_TEMPLATE/` and
 `.github/DISCUSSION_TEMPLATE/`. The five Markdown documents may sit at the repository root, in
@@ -88,15 +90,24 @@ the repository inherits, which is the whole reason it is here.
 
 ## 🏷️ Labels
 
-This account deliberately uses **GitHub's stock labels**: `bug`, `documentation`, `duplicate`,
-`enhancement`, `good first issue`, `help wanted`, `invalid`, `question`, and `wontfix`, at their
-default colors and descriptions. Every new repository is born with exactly this set, and the issue
-and discussion forms above apply only these names, so automatic labeling works in every repository
-with nothing to install, clone, or sync.
+The forms here apply the **shared taxonomy** from
+[`tannergolden/standards`](https://github.com/tannergolden/standards): prefixed names such as
+`type: bug` and `status: needs triage`, which sort predictably and keep what a thing _is_ separate
+from the stage it is at. All sixteen forms declare a `type:` and `status: needs triage` at creation,
+and the two whose subject already implies an area declare that too: `area: ui/ux` for the
+Accessibility Report, `area: dx` for the tooling and setup category. The `area:` names offered as
+checkboxes in the other forms come from the same vocabulary but are read by a human at triage rather
+than applied automatically.
 
-Stock names also carry the platform behavior that matters: `good first issue` feeds GitHub's
-contributor discovery and the repository's `/contribute` page, and `help wanted` feeds
-community-discovery search.
+That taxonomy is **not** part of a repository's stock label set. A repository provisions it by
+running **🎯 Apply Standards** once, which syncs `data/labels.yml` over the API, create-or-update
+and never pruning, so labels added by hand survive. Until that runs, a form naming a label the
+repository does not have still files the issue normally; it simply arrives without that label and
+gets triaged by hand.
+
+The stock labels a new repository is born with keep working alongside the taxonomy, and two of them
+carry platform behavior worth keeping: `good first issue` feeds GitHub's contributor discovery and
+the repository's `/contribute` page, and `help wanted` feeds community-discovery search.
 
 ---
 
