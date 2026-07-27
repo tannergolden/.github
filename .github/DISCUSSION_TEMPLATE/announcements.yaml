@@ -1,6 +1,9 @@
 # Keep the prefill short - the structured details are captured by the
 # form fields below.
 title: '📢 Announcement: <Component/Scope> - <Short summary>'
+labels:
+  - 'type: discussion'
+  - 'status: needs triage'
 body:
   - type: markdown
     attributes:

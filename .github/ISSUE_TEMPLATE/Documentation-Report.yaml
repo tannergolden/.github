@@ -2,7 +2,8 @@ name: '📚 Documentation Report'
 description: '📖 Report documentation gaps, inaccuracies, outdated sections, or clarity issues so we can correct and improve them.'
 title: '📚 Documentation: <Page/Section> - <Concise Summary>'
 labels:
-  - 'documentation'
+  - 'status: needs triage'
+  - 'type: documentation'
 body:
   - type: markdown
     attributes:
@@ -83,14 +84,14 @@ body:
   - type: textarea
     id: evidence
     attributes:
-      label: '📎 Evidence / references'
-      description: 'Screenshots, recordings, or links that support your proposal or show the updated flow (release notes, source code, product UI). Redact sensitive data.'
+      label: '📎 Evidence / references (optional)'
+      description: 'Screenshots, recordings, or links that support your proposal (release notes, source code, product UI). Redact sensitive data.'
       placeholder: 'Links, screenshots, or snippets supporting the change.'
 
   - type: textarea
     id: scope
     attributes:
-      label: '🗺️ Scope'
+      label: '🗺️ Scope (optional)'
       description: 'List other pages/sections that may also need updates to stay consistent.'
       placeholder: "- docs/…\n- guides/…\n- README sections…"
 
@@ -110,11 +111,19 @@ body:
   - type: checkboxes
     id: platform
     attributes:
-      label: '🖥️ Platform context'
+      label: '🧰 Platform (optional)'
       options:
         - label: Web
         - label: Mobile
         - label: Desktop
+        - label: Other
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: '🖼️ Screenshots / recordings (optional)'
+      description: 'Visuals that highlight the issue or show the updated flow.'
+      placeholder: 'Attach images or paste links to recordings.'
 
   - type: textarea
     id: additional_context

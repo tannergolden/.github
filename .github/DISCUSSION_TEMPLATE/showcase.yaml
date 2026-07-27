@@ -1,6 +1,9 @@
 # Keep the prefill short - the structured details are captured by the
 # form fields below.
 title: '🎉 Showcase: <Project/Feature> - <Highlight>'
+labels:
+  - 'type: discussion'
+  - 'status: needs triage'
 body:
   - type: markdown
     attributes:
@@ -92,7 +95,7 @@ body:
   - type: textarea
     id: metrics
     attributes:
-      label: '📈 Results / metrics'
+      label: '📈 Results / metrics (optional)'
       description: 'Benchmarks, adoption, error-rate changes, or time saved.'
       placeholder: "- p95 latency: 420 ms → 210 ms\n- Conversion: +8%\n- Time-on-task: −35%"
 

@@ -2,7 +2,8 @@ name: '📝 Feedback Report'
 description: '💡 Share feedback, suggestions, or usability insights to help us improve the project.'
 title: '📝 Feedback: <Component/Area> - <Concise Summary>'
 labels:
-  - 'enhancement'
+  - 'status: needs triage'
+  - 'type: feedback'
 body:
   - type: markdown
     attributes:
@@ -22,7 +23,7 @@ body:
         **Don’t use this template for:**
         - Reproducible product bugs → use 🐛 Bug Report
         - Performance issues → use 🚀 Performance Report
-        - Documentation corrections → use 📚 Documentation Report
+        - Documentation corrections → use 📖 Documentation Report
         - Accessibility problems → use ♿ Accessibility Report
         - Requests for new features → use ✨ Feature Request
         - Security vulnerabilities → follow SECURITY.md (responsible disclosure)
@@ -78,7 +79,7 @@ body:
   - type: textarea
     id: rationale
     attributes:
-      label: '📈 Rationale'
+      label: '📈 Rationale (optional)'
       description: 'Why this matters: pain points, goals, or metrics.'
       placeholder: 'Conversion, time-on-task, error rate, support volume, etc.'
 
@@ -92,12 +93,12 @@ body:
   - type: checkboxes
     id: platform
     attributes:
-      label: '🧰 Environment (if applicable)'
-      description: 'Select platforms involved.'
+      label: '🧰 Platform (optional)'
       options:
         - label: Web
         - label: Mobile
         - label: Desktop
+        - label: Other
 
   - type: input
     id: device
@@ -126,14 +127,14 @@ body:
   - type: textarea
     id: proposed_direction
     attributes:
-      label: '🧭 Proposed direction'
+      label: '🧭 Proposed direction (optional)'
       description: 'Ideas, sketches, or references.'
       placeholder: 'Example: Split onboarding into 3 steps; auto-save progress; show progress indicator.'
 
   - type: textarea
     id: alternatives
     attributes:
-      label: '🔀 Alternatives considered'
+      label: '🔀 Alternatives considered (optional)'
       description: 'Other approaches you thought about and trade-offs.'
       placeholder: "Alternative A: …\nAlternative B: …"
 

@@ -2,7 +2,8 @@
 # form fields below.
 title: '🧠 Idea: <Problem/Opportunity> - <Area/Component>'
 labels:
-  - 'enhancement'
+  - 'type: discussion'
+  - 'status: needs triage'
 body:
   - type: markdown
     attributes:
@@ -86,32 +87,37 @@ body:
   - type: textarea
     id: success_metrics
     attributes:
-      label: '📈 Signals for success'
+      label: '📈 Signals for success (optional)'
       description: 'How would we know this idea worked?'
       placeholder: 'Adoption, conversion, latency, error rate, time-on-task, support volume…'
 
   - type: checkboxes
-    id: areas
+    id: affected_areas
     attributes:
-      label: '🧩 Affected areas (for context)'
+      label: '🧩 Affected areas (optional)'
+      description: 'Maps to the shared area: labels. Tick any that apply.'
       options:
-        - label: 'Application Programming Interface (API)'
-        - label: 'Authentication'
-        - label: 'Billing'
-        - label: 'Developer experience (DX)'
-        - label: 'Database'
-        - label: 'Deployment'
-        - label: 'Design / User Experience (UX)'
-        - label: 'Testing'
-        - label: 'User Interface (UI)'
+        - label: 'area: analytics'
+        - label: 'area: api'
+        - label: 'area: backend'
+        - label: 'area: database'
+        - label: 'area: dx'
+        - label: 'area: frontend'
+        - label: 'area: governance'
+        - label: 'area: i18n'
+        - label: 'area: infrastructure'
+        - label: 'area: mobile'
+        - label: 'area: ui/ux'
 
   - type: checkboxes
-    id: environment
+    id: platform
     attributes:
-      label: '🌎 Environment (if applicable)'
+      label: '🧰 Platform (optional)'
       options:
-        - label: 'Mobile'
-        - label: 'Web Browser'
+        - label: Web
+        - label: Mobile
+        - label: Desktop
+        - label: Other
 
   - type: textarea
     id: links

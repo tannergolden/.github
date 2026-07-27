@@ -4,7 +4,8 @@ description: '🐞 Report a defect, regression, or unexpected behavior so we can
 # by dedicated form fields below.
 title: '🐛 Bug: <Component/Area> - <Concise Summary>'
 labels:
-  - 'bug'
+  - 'status: needs triage'
+  - 'type: bug'
 body:
   - type: markdown
     attributes:
@@ -23,7 +24,7 @@ body:
         **Don’t use this template for:**
         - Usability or design suggestions → use 📝 Feedback Report
         - Performance concerns (lag, memory usage) → use 🚀 Performance Report
-        - Documentation issues → use 📚 Documentation Report
+        - Documentation issues → use 📖 Documentation Report
         - Accessibility-specific problems → use ♿ Accessibility Report
         - Feature ideas or enhancements → use ✨ Feature Request
         - Security vulnerabilities → follow SECURITY.md (responsible disclosure)
@@ -49,8 +50,7 @@ body:
   - type: dropdown
     id: scope
     attributes:
-      label: '📊 Approximate impact'
-      description: 'How many users are affected?'
+      label: '📊 Approximate scope'
       options:
         - All
         - Many
@@ -100,11 +100,12 @@ body:
   - type: checkboxes
     id: platform
     attributes:
-      label: '🧰 Platform'
+      label: '🧰 Platform (optional)'
       options:
         - label: Web
         - label: Mobile
         - label: Desktop
+        - label: Other
 
   - type: input
     id: device
@@ -134,7 +135,7 @@ body:
     id: branch_commit
     attributes:
       label: '🔖 Branch / Commit SHA'
-      placeholder: 'main / abcdef1'
+      placeholder: 'Development|Preview|Release / abcdef1'
 
   - type: input
     id: backend_environment
@@ -200,14 +201,20 @@ body:
   - type: checkboxes
     id: affected_areas
     attributes:
-      label: '🧩 Affected areas'
+      label: '🧩 Affected areas (optional)'
+      description: 'Maps to the shared area: labels. Tick any that apply.'
       options:
-        - label: User Interface (UI)
-        - label: Application Programming Interface (API)
-        - label: Database
-        - label: Build
-        - label: Deployment
-        - label: Other
+        - label: 'area: analytics'
+        - label: 'area: api'
+        - label: 'area: backend'
+        - label: 'area: database'
+        - label: 'area: dx'
+        - label: 'area: frontend'
+        - label: 'area: governance'
+        - label: 'area: i18n'
+        - label: 'area: infrastructure'
+        - label: 'area: mobile'
+        - label: 'area: ui/ux'
 
   - type: textarea
     id: workarounds

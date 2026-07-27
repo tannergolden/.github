@@ -1,8 +1,10 @@
 name: '♿ Accessibility Report'
-description: '🦾 Report accessibility issues to improve compliance and inclusive User Experience (UX).'
+description: '⛑️ Report accessibility issues to improve compliance and inclusive User Experience (UX).'
 title: '♿ Accessibility: <Page/Element> - <Issue>'
 labels:
-  - 'bug'
+  - 'type: accessibility'
+  - 'area: ui/ux'
+  - 'status: needs triage'
 body:
   - type: markdown
     attributes:
@@ -22,7 +24,7 @@ body:
         - Product bugs or broken features → use **🐛 Bug Report**
         - Usability or UX suggestions → use **📝 Feedback Report**
         - Performance problems → use **🚀 Performance Report**
-        - Documentation gaps → use **📚 Documentation Report**
+        - Documentation gaps → use **📖 Documentation Report**
         - Requests for new features → use **✨ Feature Request**
         - Security vulnerabilities → follow **SECURITY.md** (responsible disclosure)
 
@@ -91,8 +93,8 @@ body:
   - type: input
     id: guideline_reference
     attributes:
-      label: '📚 Guideline reference'
-      description: 'WCAG criterion if known (e.g., WCAG 2.1.1 Keyboard).'
+      label: '📚 Guideline reference (optional)'
+      description: 'WCAG criterion if known (e.g., WCAG 2.2.1 Keyboard).'
       placeholder: 'WCAG 2.4.3 Focus Order, WCAG 1.4.3 Contrast (Minimum)'
 
   - type: textarea

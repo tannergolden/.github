@@ -2,7 +2,9 @@
 # form fields below.
 title: '🧰 Tooling & Setup: <Topic> - <Tool/Stack>'
 labels:
-  - 'question'
+  - 'type: discussion'
+  - 'status: needs triage'
+  - 'area: dx'
 body:
   - type: markdown
     attributes:
@@ -47,17 +49,17 @@ body:
         - label: VS Code / Extensions
         - label: JetBrains (WebStorm/IntelliJ)
         - label: Vim / Neovim
-        - label: npm / yarn / pnpm / bun
+        - label: Package manager (npm, pip, cargo, go mod, maven, bundler)
         - label: nvm / fnm / volta
         - label: Turborepo / Nx / Rush
         - label: Vite / Webpack / Rollup / esbuild / Parcel
-        - label: TypeScript / ts-node / SWC / Babel
+        - label: Compiler or transpiler toolchain
         - label: ESLint / Prettier / Stylelint
         - label: Jest / Vitest / Mocha / Cypress / Playwright
         - label: Husky / Lefthook / Commitlint / Lint-staged
         - label: Docker / Docker Compose / Dev Containers
         - label: GitHub Actions / CircleCI / GitLab CI / Jenkins
-        - label: Make / Just / Taskfile / npm scripts
+        - label: Task runner (Make, Just, Taskfile, or language-native scripts)
         - label: OpenSSL / mkcert / Certificates
         - label: Other
 
@@ -71,7 +73,7 @@ body:
     id: package_manager_versions
     attributes:
       label: '📦 Package manager & version'
-      placeholder: 'npm 10.8 / yarn 4.3 / pnpm 9.1 / bun 1.1'
+      placeholder: 'e.g. npm 10.8, pip 24.0, cargo 1.79, go 1.22'
 
   - type: input
     id: os_cpu_shell
@@ -82,7 +84,7 @@ body:
   - type: input
     id: ci_runner_or_container
     attributes:
-      label: '⚙️ CI runner / container engine'
+      label: '⚙️ CI runner / container engine (optional)'
       placeholder: 'GitHub Actions ubuntu-latest · Docker 26.x · Devcontainer'
 
   - type: textarea
@@ -101,7 +103,7 @@ body:
       description: 'Key config snippets or steps already taken.'
       placeholder: |
         - Repo structure / workspaces: …
-        - tsconfig/eslint/prettier highlights: …
+        - linter and formatter configuration highlights: …
         - CI workflow name / key steps: …
         - Devcontainer/Dockerfile excerpts: …
 
@@ -124,33 +126,38 @@ body:
   - type: textarea
     id: logs
     attributes:
-      label: '📜 Logs / errors'
+      label: '📜 Logs / errors (optional)'
       description: 'Paste relevant excerpts; sanitize secrets and URLs.'
       placeholder: |
         <error/output here>
 
   - type: checkboxes
-    id: environment_labels
+    id: platform
     attributes:
-      label: '🌎 Environment'
+      label: '🧰 Platform (optional)'
       options:
-        - label: 'Mobile'
-        - label: 'Web Browser'
+        - label: Web
+        - label: Mobile
+        - label: Desktop
+        - label: Other
 
   - type: checkboxes
-    id: area_labels
+    id: affected_areas
     attributes:
-      label: '🧩 Affected areas (context)'
+      label: '🧩 Affected areas (optional)'
+      description: 'Maps to the shared area: labels. Tick any that apply.'
       options:
-        - label: 'Application Programming Interface (API)'
-        - label: 'Authentication'
-        - label: 'Billing'
-        - label: 'Developer experience (DX)'
-        - label: 'Database'
-        - label: 'Deployment'
-        - label: 'Design / User Experience (UX)'
-        - label: 'Testing'
-        - label: 'User Interface (UI)'
+        - label: 'area: analytics'
+        - label: 'area: api'
+        - label: 'area: backend'
+        - label: 'area: database'
+        - label: 'area: dx'
+        - label: 'area: frontend'
+        - label: 'area: governance'
+        - label: 'area: i18n'
+        - label: 'area: infrastructure'
+        - label: 'area: mobile'
+        - label: 'area: ui/ux'
 
   - type: textarea
     id: links

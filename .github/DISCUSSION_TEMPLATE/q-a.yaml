@@ -2,7 +2,8 @@
 # form fields below.
 title: '💬 Q&A: <Question>'
 labels:
-  - 'question'
+  - 'type: discussion'
+  - 'status: needs triage'
 body:
   - type: markdown
     attributes:
@@ -45,7 +46,7 @@ body:
   - type: dropdown
     id: language
     attributes:
-      label: '💻 Language / stack'
+      label: '💻 Language / stack (optional)'
       options:
         - JavaScript / TypeScript
         - Python
@@ -100,7 +101,7 @@ body:
   - type: textarea
     id: repro
     attributes:
-      label: '🔁 Steps / minimal example'
+      label: '🔁 Steps / minimal example (optional)'
       description: 'Numbered steps or a tiny repro. Gists and sandboxes welcome.'
       placeholder: |
         1) …
@@ -113,35 +114,40 @@ body:
   - type: textarea
     id: errors
     attributes:
-      label: '📜 Error messages / logs'
+      label: '📜 Error messages / logs (optional)'
       description: 'Paste relevant excerpts; sanitize secrets and URLs.'
       placeholder: |
         Error: TokenExpiredError: jwt expired at …
         Stack:
-          at …/auth.ts:42
+          at …/auth:42
 
   - type: checkboxes
-    id: environment
+    id: platform
     attributes:
-      label: '🌎 Environment (if applicable)'
+      label: '🧰 Platform (optional)'
       options:
-        - label: 'Mobile'
-        - label: 'Web Browser'
+        - label: Web
+        - label: Mobile
+        - label: Desktop
+        - label: Other
 
   - type: checkboxes
-    id: areas
+    id: affected_areas
     attributes:
-      label: '🧩 Affected areas (context)'
+      label: '🧩 Affected areas (optional)'
+      description: 'Maps to the shared area: labels. Tick any that apply.'
       options:
-        - label: 'Application Programming Interface (API)'
-        - label: 'Authentication'
-        - label: 'Billing'
-        - label: 'Developer experience (DX)'
-        - label: 'Database'
-        - label: 'Deployment'
-        - label: 'Design / User Experience (UX)'
-        - label: 'Testing'
-        - label: 'User Interface (UI)'
+        - label: 'area: analytics'
+        - label: 'area: api'
+        - label: 'area: backend'
+        - label: 'area: database'
+        - label: 'area: dx'
+        - label: 'area: frontend'
+        - label: 'area: governance'
+        - label: 'area: i18n'
+        - label: 'area: infrastructure'
+        - label: 'area: mobile'
+        - label: 'area: ui/ux'
 
   - type: input
     id: versions

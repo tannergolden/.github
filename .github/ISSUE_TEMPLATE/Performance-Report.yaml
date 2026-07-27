@@ -4,7 +4,8 @@ description: '⚡️ Report slow pages, high latency, memory spikes, or ineffici
 # form fields below.
 title: '🚀 Performance: <Component/Flow> - <Symptom/Metric>'
 labels:
-  - 'bug'
+  - 'status: needs triage'
+  - 'type: performance'
 body:
   - type: markdown
     attributes:
@@ -23,7 +24,7 @@ body:
         **Don’t use this template for:**
         - Product bugs or broken features → use 🐛 Bug Report
         - Usability or design improvements → use 📝 Feedback Report
-        - Documentation gaps or errors → use 📚 Documentation Report
+        - Documentation gaps or errors → use 📖 Documentation Report
         - Accessibility-specific issues → use ♿ Accessibility Report
         - New functionality requests → use ✨ Feature Request
         - Security vulnerabilities → follow SECURITY.md (responsible disclosure)
@@ -115,11 +116,12 @@ body:
   - type: checkboxes
     id: platform
     attributes:
-      label: '🧰 Platform'
+      label: '🧰 Platform (optional)'
       options:
         - label: Web
         - label: Mobile
         - label: Desktop
+        - label: Other
 
   - type: input
     id: device
@@ -155,7 +157,13 @@ body:
     id: branch_commit
     attributes:
       label: '🔖 Branch / Commit SHA'
-      placeholder: 'main / abcdef1'
+      placeholder: 'Development|Preview|Release / abcdef1'
+
+  - type: input
+    id: backend_region
+    attributes:
+      label: '🗺️ Backend/region (if applicable)'
+      placeholder: 'e.g., United States-East, Europe-West'
 
   - type: input
     id: backend_environment
@@ -167,7 +175,7 @@ body:
   - type: textarea
     id: diagnostics
     attributes:
-      label: '🧪 Diagnostics performed'
+      label: '🧪 Diagnostics performed (optional)'
       description: 'Profiling tools and results (e.g., Performance panel, Lighthouse, React Profiler, flamegraphs, query plans).'
       placeholder: 'List diagnostics and attach results if possible.'
 
@@ -186,14 +194,14 @@ body:
   - type: textarea
     id: business_impact
     attributes:
-      label: '💼 Business impact'
+      label: '💼 Business impact (optional)'
       description: 'Conversion, time-to-task, support volume, SLAs, or other effects.'
       placeholder: 'Describe downstream impact.'
 
   - type: textarea
     id: proposed_direction
     attributes:
-      label: '🧭 Proposed direction'
+      label: '🧭 Proposed direction (optional)'
       description: 'Quick ideas to explore (e.g., cache layer, pagination, index, code-splitting, image optimization).'
       placeholder: 'Potential fixes or experiments.'
 

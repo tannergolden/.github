@@ -2,7 +2,8 @@ name: '✨ Feature Request'
 description: '🪄 Propose new functionality or enhancements with clear acceptance criteria, rationale, and success metrics.'
 title: '✨ Feature Request: <Component/Area> - <Concise Summary>'
 labels:
-  - 'enhancement'
+  - 'status: needs triage'
+  - 'type: feature'
 body:
   - type: markdown
     attributes:
@@ -20,7 +21,7 @@ body:
         - Bugs, crashes, or broken functionality → use 🐛 Bug Report
         - Usability feedback → use 📝 Feedback Report
         - Performance issues → use 🚀 Performance Report
-        - Documentation improvements → use 📚 Documentation Report
+        - Documentation improvements → use 📖 Documentation Report
         - Accessibility concerns → use ♿ Accessibility Report
         - Security vulnerabilities → follow SECURITY.md (responsible disclosure)
 
@@ -66,7 +67,7 @@ body:
   - type: textarea
     id: current_experience
     attributes:
-      label: '🔎 Current experience / limitation'
+      label: '🔎 Current experience / limitation (optional)'
       description: 'What happens today? Where is the friction or limitation?'
       placeholder: 'Describe the current flow and its limitations.'
 
@@ -94,44 +95,51 @@ body:
   - type: textarea
     id: success_metrics
     attributes:
-      label: '📈 Success metrics'
+      label: '📈 Success metrics (optional)'
       description: 'How we will measure success.'
       placeholder: 'Adoption, conversion, error rate, time-on-task, NPS, etc.'
 
   - type: textarea
     id: dependencies_risks
     attributes:
-      label: '🔗 Dependencies / risks'
+      label: '🔗 Dependencies / risks (optional)'
       description: 'Upstream services, permissions, migrations, sequencing, rollout risks.'
       placeholder: 'List dependencies, blockers, and known risks.'
 
   - type: textarea
     id: scope_in_out
     attributes:
-      label: '🗺️ Scope / out of scope'
+      label: '🗺️ Scope / out of scope (optional)'
       description: 'Clarify what is included vs. explicitly excluded.'
       placeholder: "In scope: …\nOut of scope: …"
 
   - type: checkboxes
     id: platform
     attributes:
-      label: '🧰 Platform (if applicable)'
+      label: '🧰 Platform (optional)'
       options:
         - label: Web
         - label: Mobile
         - label: Desktop
+        - label: Other
 
   - type: checkboxes
     id: affected_areas
     attributes:
-      label: '🧩 Affected areas'
+      label: '🧩 Affected areas (optional)'
+      description: 'Maps to the shared area: labels. Tick any that apply.'
       options:
-        - label: User Interface (UI)
-        - label: Application Programming Interface (API)
-        - label: Backend
-        - label: Database
-        - label: Build / Deployment
-        - label: Other
+        - label: 'area: analytics'
+        - label: 'area: api'
+        - label: 'area: backend'
+        - label: 'area: database'
+        - label: 'area: dx'
+        - label: 'area: frontend'
+        - label: 'area: governance'
+        - label: 'area: i18n'
+        - label: 'area: infrastructure'
+        - label: 'area: mobile'
+        - label: 'area: ui/ux'
 
   - type: input
     id: app_version

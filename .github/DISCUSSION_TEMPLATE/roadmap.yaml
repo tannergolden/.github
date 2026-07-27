@@ -1,6 +1,9 @@
 # Keep the prefill short - the structured details are captured by the
 # form fields below.
 title: '🧭 Roadmap: <Initiative/Theme> - <Timeframe>'
+labels:
+  - 'type: discussion'
+  - 'status: needs triage'
 body:
   - type: markdown
     attributes:
@@ -73,7 +76,7 @@ body:
   - type: input
     id: milestone_ref
     attributes:
-      label: '🏁 Milestone / release tag'
+      label: '🏁 Milestone / release tag (optional)'
       placeholder: 'milestone-2025q4 / v1.8.0'
 
   - type: textarea
@@ -120,32 +123,37 @@ body:
   - type: textarea
     id: metrics
     attributes:
-      label: '📈 Metrics'
+      label: '📈 Metrics (optional)'
       description: 'KPIs to monitor during/after delivery.'
       placeholder: '- Adoption %, p95 latency target, error rate, support volume…'
 
   - type: checkboxes
-    id: areas
+    id: affected_areas
     attributes:
-      label: '🧩 Affected areas (context)'
+      label: '🧩 Affected areas (optional)'
+      description: 'Maps to the shared area: labels. Tick any that apply.'
       options:
-        - label: 'Application Programming Interface (API)'
-        - label: 'Authentication'
-        - label: 'Billing'
-        - label: 'Developer experience (DX)'
-        - label: 'Database'
-        - label: 'Deployment'
-        - label: 'Design / User Experience (UX)'
-        - label: 'Testing'
-        - label: 'User Interface (UI)'
+        - label: 'area: analytics'
+        - label: 'area: api'
+        - label: 'area: backend'
+        - label: 'area: database'
+        - label: 'area: dx'
+        - label: 'area: frontend'
+        - label: 'area: governance'
+        - label: 'area: i18n'
+        - label: 'area: infrastructure'
+        - label: 'area: mobile'
+        - label: 'area: ui/ux'
 
   - type: checkboxes
-    id: environment
+    id: platform
     attributes:
-      label: '🌎 Environment (if applicable)'
+      label: '🧰 Platform (optional)'
       options:
-        - label: 'Mobile'
-        - label: 'Web Browser'
+        - label: Web
+        - label: Mobile
+        - label: Desktop
+        - label: Other
 
   - type: textarea
     id: links

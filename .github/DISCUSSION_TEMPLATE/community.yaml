@@ -1,6 +1,9 @@
 # Keep the prefill short - the structured details are captured by the
 # form fields below.
 title: '👋 Community: <Topic>'
+labels:
+  - 'type: discussion'
+  - 'status: needs triage'
 body:
   - type: markdown
     attributes:
@@ -20,6 +23,7 @@ body:
         - User group / local chapter
         - Office hours
         - AMA (Ask Me Anything)
+        - Show & tell / demos
         - Success stories
         - Help wanted
         - Looking for collaborators
@@ -30,6 +34,7 @@ body:
         - Resource share (articles/videos/tools)
         - Community guidelines / moderation
         - Social / off-topic (light)
+        - Poll / survey
         - Retrospective / lessons learned
         - New member questions
         - Regional / location-specific
@@ -70,7 +75,7 @@ body:
   - type: textarea
     id: agenda
     attributes:
-      label: '🧾 Agenda or topics'
+      label: '🧾 Agenda or topics (optional)'
       description: 'For meetups/events: outline agenda, speakers, or goals.'
       placeholder: "- Welcome & intros\n- Demo: …\n- Q&A"
 

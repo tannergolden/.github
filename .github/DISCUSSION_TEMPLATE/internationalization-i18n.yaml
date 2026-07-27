@@ -1,6 +1,9 @@
 # Keep the prefill short - the structured details are captured by the
 # form fields below.
 title: '🌐 Internationalization: <Locale(s)> - <Topic>'
+labels:
+  - 'type: discussion'
+  - 'status: needs triage'
 body:
   - type: markdown
     attributes:
@@ -65,27 +68,32 @@ body:
       required: true
 
   - type: checkboxes
-    id: environment
+    id: platform
     attributes:
-      label: '🌎 Environment (if applicable)'
+      label: '🧰 Platform (optional)'
       options:
-        - label: 'Mobile'
-        - label: 'Web Browser'
+        - label: Web
+        - label: Mobile
+        - label: Desktop
+        - label: Other
 
   - type: checkboxes
-    id: areas
+    id: affected_areas
     attributes:
-      label: '🧩 Affected areas (context)'
+      label: '🧩 Affected areas (optional)'
+      description: 'Maps to the shared area: labels. Tick any that apply.'
       options:
-        - label: 'Application Programming Interface (API)'
-        - label: 'Authentication'
-        - label: 'Billing'
-        - label: 'Developer experience (DX)'
-        - label: 'Database'
-        - label: 'Deployment'
-        - label: 'Design / User Experience (UX)'
-        - label: 'Testing'
-        - label: 'User Interface (UI)'
+        - label: 'area: analytics'
+        - label: 'area: api'
+        - label: 'area: backend'
+        - label: 'area: database'
+        - label: 'area: dx'
+        - label: 'area: frontend'
+        - label: 'area: governance'
+        - label: 'area: i18n'
+        - label: 'area: infrastructure'
+        - label: 'area: mobile'
+        - label: 'area: ui/ux'
 
   - type: textarea
     id: summary
@@ -117,7 +125,7 @@ body:
   - type: textarea
     id: examples_strings
     attributes:
-      label: '🧾 Examples / strings'
+      label: '🧾 Examples / strings (optional)'
       description: 'Problematic keys/values or snippets (avoid secrets).'
       placeholder: |
         key: auth.login.title

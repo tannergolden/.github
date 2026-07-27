@@ -1,6 +1,9 @@
 # Keep the prefill short - the structured details are captured by the
 # form fields below.
 title: '♿ Accessibility: <Area/Component> - <Issue>'
+labels:
+  - 'type: discussion'
+  - 'status: needs triage'
 body:
   - type: markdown
     attributes:
@@ -37,12 +40,14 @@ body:
       required: true
 
   - type: checkboxes
-    id: environment
+    id: platform
     attributes:
-      label: '🌎 Environment'
+      label: '🧰 Platform (optional)'
       options:
-        - label: 'Mobile'
-        - label: 'Web Browser'
+        - label: Web
+        - label: Mobile
+        - label: Desktop
+        - label: Other
 
   - type: checkboxes
     id: assistive_tech
@@ -94,7 +99,7 @@ body:
   - type: textarea
     id: repro_steps
     attributes:
-      label: '🔁 Steps to reproduce'
+      label: '🔁 Steps to reproduce (optional)'
       description: 'Numbered steps to trigger the issue reliably.'
       placeholder: |
         1) Open …
@@ -104,8 +109,8 @@ body:
   - type: input
     id: wcag_reference
     attributes:
-      label: '📚 WCAG reference'
-      description: 'List relevant criteria if known (e.g., WCAG 2.1.1 Keyboard, 1.4.3 Contrast).'
+      label: '📚 WCAG reference (optional)'
+      description: 'List relevant criteria if known (e.g., WCAG 2.2.1 Keyboard, 1.4.3 Contrast).'
       placeholder: 'WCAG 2.4.3 Focus Order; WCAG 1.4.11 Non-text Contrast'
 
   - type: textarea
@@ -116,19 +121,22 @@ body:
       placeholder: "- Screenshot: …\n- Video: …\n- SR output: …"
 
   - type: checkboxes
-    id: areas
+    id: affected_areas
     attributes:
-      label: '🧩 Affected areas (context)'
+      label: '🧩 Affected areas (optional)'
+      description: 'Maps to the shared area: labels. Tick any that apply.'
       options:
-        - label: 'Application Programming Interface (API)'
-        - label: 'Authentication'
-        - label: 'Billing'
-        - label: 'Developer experience (DX)'
-        - label: 'Database'
-        - label: 'Deployment'
-        - label: 'Design / User Experience (UX)'
-        - label: 'Testing'
-        - label: 'User Interface (UI)'
+        - label: 'area: analytics'
+        - label: 'area: api'
+        - label: 'area: backend'
+        - label: 'area: database'
+        - label: 'area: dx'
+        - label: 'area: frontend'
+        - label: 'area: governance'
+        - label: 'area: i18n'
+        - label: 'area: infrastructure'
+        - label: 'area: mobile'
+        - label: 'area: ui/ux'
 
   - type: textarea
     id: links
