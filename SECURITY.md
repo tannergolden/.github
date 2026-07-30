@@ -42,8 +42,9 @@ every project remains responsible for its own security posture.
 
 ## ✅ Supported Versions
 
-Unless a repository states otherwise, **only the latest release receives security patches**, and
-fixes land on the default branch first. Older tags and branches are provided as-is.
+Fixes land on the **default branch** first; that is the one place every repository here has. Where a
+repository publishes releases, **only the latest release receives security patches** unless it states
+otherwise, and older tags and branches are provided as-is.
 
 ---
 
@@ -78,9 +79,9 @@ These are targets for a best-effort maintained project, not a contractual SLA.
 ### 4. Credit for Reporters
 
 We **credit every reporter** who responsibly discloses a valid vulnerability. Unless you ask to
-remain anonymous, your name or handle is acknowledged in the security advisory and in the release
-notes for the fix. Recognition is the least we owe the people who keep the community safe, so tell us
-how you would like to be credited when you report.
+remain anonymous, your name or handle is acknowledged in the security advisory, and in the release
+notes for the fix where the repository publishes them. Recognition is the least we owe the people who
+keep the community safe, so tell us how you would like to be credited when you report.
 
 ---
 

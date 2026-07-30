@@ -70,8 +70,8 @@ not accept "code dumps". Every line should be justified and tested.
 ### Commit Messages
 
 We use **[Conventional Commits](https://www.conventionalcommits.org/)** (`type(scope): summary`).
-Release tooling reads these messages to generate changelogs and determine version numbers, so the
-format is load-bearing rather than cosmetic.
+Where a repository automates releases, this format is what its tooling reads to generate changelogs
+and determine version numbers, so treat it as load-bearing rather than cosmetic.
 
 - **Format:** `type(scope): summary`
 - **Types:** `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`,
