@@ -47,10 +47,10 @@ than with any individual's preference.
 
 ## 👥 Roles & Responsibilities
 
-| Role                   | Who they are                             | Responsibilities                                                                              |
-| :--------------------- | :--------------------------------------- | :-------------------------------------------------------------------------------------------- |
-| **Maintainer**         | Named in the repository's `CODEOWNERS`   | Review and merge pull requests, cut releases, steward security response, administer settings. |
-| **Contributor**        | Anyone who opens a pull request or issue | Follow the contributing guidelines; respond to review feedback.                               |
+| Role                   | Who they are                             | Responsibilities                                                                                                                             |
+| :--------------------- | :--------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Maintainer**         | Named in the repository's `CODEOWNERS`   | Review and merge pull requests, cut releases, steward security response, administer settings.                                                |
+| **Contributor**        | Anyone who opens a pull request or issue | Follow the contributing guidelines; respond to review feedback.                                                                              |
 | **Security responder** | A Maintainer on rotation                 | Triage private reports per the [security policy](https://github.com/tannergolden/.github/blob/HEAD/SECURITY.md) within the stated timelines. |
 
 Maintainers are added by consensus of the existing Maintainers after a sustained record of quality
