@@ -111,11 +111,13 @@ body:
     id: errors
     attributes:
       label: '📜 Error messages / logs (optional)'
-      description: 'Paste relevant excerpts; sanitize secrets and URLs.'
+      description: 'Wrap them in a ``` code fence, or Markdown will eat the angle brackets. Sanitize secrets and URLs.'
       placeholder: |
+        ```text
         Error: TokenExpiredError: jwt expired at …
         Stack:
           at …/auth:42
+        ```
 
   - type: checkboxes
     id: platform

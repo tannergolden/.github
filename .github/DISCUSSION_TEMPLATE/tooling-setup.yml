@@ -127,9 +127,12 @@ body:
     id: logs
     attributes:
       label: '📜 Logs / errors (optional)'
-      description: 'Paste relevant excerpts; sanitize secrets and URLs.'
+      description: 'Wrap them in a ``` code fence, or Markdown will eat the angle brackets. Sanitize secrets and URLs.'
       placeholder: |
-        <error/output here>
+        ```text
+        npm ERR! code ERESOLVE
+        npm ERR!   peer react@"^18" from react-dom@18.3.1
+        ```
 
   - type: checkboxes
     id: platform
