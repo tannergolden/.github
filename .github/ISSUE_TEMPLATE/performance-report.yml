@@ -161,12 +161,6 @@ body:
       placeholder: '<branch> / abcdef1'
 
   - type: input
-    id: backend_region
-    attributes:
-      label: '🗺️ Backend/region (if applicable)'
-      placeholder: 'e.g., United States-East, Europe-West'
-
-  - type: input
     id: backend_environment
     attributes:
       label: '☁️ Backend / cloud environment (if relevant)'
