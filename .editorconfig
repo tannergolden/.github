@@ -1,0 +1,24 @@
+# Editor defaults for this repository.
+# Enforced by scripts/validate-templates.py, which fails on trailing whitespace
+# and on a missing final newline.
+
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_style = space
+indent_size = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.md]
+# Markdown uses two trailing spaces as a hard line break. Nothing here relies on
+# it, but trimming is left to the author rather than the editor.
+trim_trailing_whitespace = false
+
+[*.py]
+indent_size = 4
+
+[LICENSE]
+indent_style = unset

@@ -1,0 +1,24 @@
+// Markdown rules for the community health defaults.
+//
+// The defaults are tuned to this repository's existing house style rather than
+// the other way round: these documents already share one shape, and a linter
+// that argues with it would be turned off within a week.
+{
+  "config": {
+    // Prose wraps near 100; the routing tables in SUPPORT.md and the role table
+    // in GOVERNANCE.md cannot wrap at all, and neither can a URL.
+    "MD013": {
+      "line_length": 120,
+      "tables": false,
+      "code_blocks": false,
+      "headings": false
+    },
+    // Every document opens with a centered hero and closes with a centered
+    // footer. That is the house style, not an accident.
+    "MD033": {
+      "allowed_elements": ["div", "a", "br", "img", "details", "summary"]
+    }
+  },
+  "globs": ["**/*.md"],
+  "ignores": [".git"]
+}

@@ -54,7 +54,8 @@ day one, without copying a single file.
 | `.github/DISCUSSION_TEMPLATE/`     | Category forms for Discussions                                        |
 
 That is the complete supported set: GitHub serves these file types as defaults and no others.
-Apart from this README and the `LICENSE`, the repository holds nothing else on purpose.
+Apart from this README, the `LICENSE`, and the tooling that checks the files above, the repository
+holds nothing else on purpose.
 
 ---
 
@@ -114,7 +115,22 @@ the repository's `/contribute` page, and `help wanted` feeds community-discovery
 ## 🛠️ Working On These Files
 
 Changes here reach every repository on the account the moment they merge, so treat them as
-production documents:
+production documents.
+
+GitHub drops a malformed form **silently**: no error, no notification, just a chooser that quietly
+stops offering it. Nothing else here builds or tests, so one command stands in for both:
+
+```bash
+python3 scripts/validate-templates.py
+```
+
+It checks what GitHub will not tell you about — that every form uses the `.yml` extension GitHub
+documents, that every discussion form is named for a real category slug, that no form claims the
+Polls category (which does not support forms at all), that the forms cross-reference each other by
+the right name, and that links are not pinned to a branch name. `.github/workflows/validate.yml`
+runs it, plus `markdownlint`, on every push. Both need to pass.
+
+The house rules the checker cannot enforce:
 
 - Keep the language **project-agnostic**. These render inside repositories with different stacks,
   audiences, and maturity levels.
