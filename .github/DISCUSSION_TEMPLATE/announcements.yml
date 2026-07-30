@@ -108,6 +108,6 @@ body:
   - type: textarea
     id: links
     attributes:
-      label: '🔗 Links and references'
+      label: '🔗 Links & references'
       description: 'Changelog, docs, tracking issues, or PRs.'
       placeholder: "- Changelog: …\n- Docs: …\n- Issue: …\n- PR: …"
