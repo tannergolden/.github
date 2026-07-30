@@ -9,8 +9,6 @@ body:
   - type: markdown
     attributes:
       value: |
-        <!-- Use this to report accessibility barriers. Avoid sharing secrets or personally identifiable information (PII). -->
-
         ## 📌 What this template is for (and not for)
 
         **Use this template for:**

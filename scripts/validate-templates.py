@@ -243,8 +243,15 @@ def check_body(path: Path, body: object, report: Report) -> None:
             continue
 
         if kind == "markdown":
-            if not str(attributes.get("value", "")).strip():
+            value = str(attributes.get("value", ""))
+            if not value.strip():
                 report.error(where, f"{at}: markdown requires a non-empty 'value'")
+            if "<!--" in value:
+                # A markdown block is rendered, never edited, so an HTML comment
+                # inside it is deleted on the way to the screen. The idiom works
+                # in pull_request_template.md, whose text the author edits, and
+                # silently loses the content here. Use a YAML comment instead.
+                report.error(where, f"{at}: HTML comment in a markdown block is stripped on render")
         else:
             label = str(attributes.get("label", "")).strip()
             if not label:
