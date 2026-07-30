@@ -12,6 +12,8 @@ truly does not apply or mark it N/A.
 - Never paste secrets into code, logs, or screenshots.
 -->
 
+<!-- markdownlint-disable MD041 -->
+
 ## 📝 Summary
 
 - **What changed** (2-4 sentences):
@@ -43,7 +45,8 @@ truly does not apply or mark it N/A.
 - **Manual steps** a reviewer can follow to reproduce the result:
   1. [step]
   2. [step]
-- **Evidence** for UI or behavior changes (before -> after screenshots, recordings, or logs; redact secrets; add alt text on images):
+- **Evidence** for UI or behavior changes (before -> after screenshots, recordings,
+  or logs; redact secrets; add alt text on images):
 
 ## 💥 Risk & Rollback
 
