@@ -41,6 +41,7 @@ body:
         - Hackathon / Weekend project
         - Community project / Extension
         - Release highlight
+        - Other
     validations:
       required: true
 

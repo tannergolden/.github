@@ -42,6 +42,7 @@ body:
         - Accessibility (A11y)
         - Pricing / Billing change
         - Governance / Policy
+        - Other
     validations:
       required: true
 

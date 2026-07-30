@@ -112,6 +112,14 @@ UNQUOTED_BOOLEAN_OPTION = re.compile(
 
 LABEL_PREFIX = re.compile(r"^(type|status|area): \S")
 
+# A required dropdown has to be answerable. Where a reporter may genuinely not
+# know, or where the list cannot be exhaustive, one of these has to be on offer.
+ESCAPE_HATCHES = {"Unknown", "Other"}
+
+# Dropdowns whose options really are exhaustive, so an escape hatch would only
+# add a meaningless answer. Keyed by "<file stem>:<field id>".
+CLOSED_ENUMS = {"roadmap:status"}
+
 # Strings that name this account's own setup. A default renders inside
 # repositories with different branches, stacks, and conventions.
 ACCOUNT_SPECIFIC = [
@@ -273,6 +281,15 @@ def check_body(path: Path, body: object, report: Report) -> None:
                 if text in seen:
                     report.error(where, f"{at}: duplicate option {text!r}")
                 seen.add(text)
+
+            required = item.get("validations", {}).get("required") if isinstance(item.get("validations"), dict) else False
+            key = f"{path.stem}:{item.get('id')}"
+            if required and key not in CLOSED_ENUMS and not (seen & ESCAPE_HATCHES):
+                report.error(
+                    where,
+                    f"{at}: required dropdown {item.get('id')!r} has no {' or '.join(sorted(ESCAPE_HATCHES))} "
+                    f"option, so a reporter who cannot answer it cannot submit",
+                )
 
         if kind == "checkboxes":
             options = attributes.get("options")

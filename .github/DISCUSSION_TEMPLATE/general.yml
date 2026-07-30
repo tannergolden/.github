@@ -39,6 +39,7 @@ body:
         - New member questions
         - Regional / location-specific
         - Feedback on community processes
+        - Other
     validations:
       required: true
 
