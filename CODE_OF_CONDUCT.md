@@ -157,6 +157,6 @@ were inspired by [Mozilla's code of conduct enforcement ladder](https://github.c
 
 <br />
 
-Built with ❤️ by [@tannergolden](https://github.com/tannergolden). Distributed under the MIT License.
+Built with ❤️ by [@tannergolden](https://github.com/tannergolden).
 
 </div>

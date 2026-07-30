@@ -78,6 +78,6 @@ There is no paid support tier and no guaranteed response time.
 
 <br />
 
-Built with ❤️ by [@tannergolden](https://github.com/tannergolden). Distributed under the MIT License.
+Built with ❤️ by [@tannergolden](https://github.com/tannergolden).
 
 </div>

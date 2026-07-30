@@ -170,6 +170,6 @@ This is a **mandated policy**, not a preference:
 
 <br />
 
-Built with ❤️ by [@tannergolden](https://github.com/tannergolden). Distributed under the MIT License.
+Built with ❤️ by [@tannergolden](https://github.com/tannergolden).
 
 </div>
