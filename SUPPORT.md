@@ -39,7 +39,7 @@ _Ask once. Ask in the right place._
 | A performance problem      | 🚀 **Issues → Performance Report**                                                                                                            |
 | An accessibility barrier   | ♿ **Issues → Accessibility Report**                                                                                                          |
 | A setup or tooling problem | 🧰 **Discussions → Tooling & Setup** (or Q&A where that category does not exist)                                                                                                          |
-| A security vulnerability   | 🛡️ **[Security Policy](https://github.com/tannergolden/.github/blob/Development/SECURITY.md)**: private disclosure only, never a public issue |
+| A security vulnerability   | 🛡️ **[Security Policy](https://github.com/tannergolden/.github/blob/HEAD/SECURITY.md)**: private disclosure only, never a public issue |
 
 If a repository has Discussions disabled, open the closest-matching issue form instead; a
 maintainer will redirect it to the right channel.
@@ -52,7 +52,7 @@ Most questions are answered faster by the repository itself than by waiting for 
 
 - **`README.md`** for the quick start, requirements, and a map of the project.
 - **The repository's own `docs/`** for deeper guides, where present.
-- **[Contributing guide](https://github.com/tannergolden/.github/blob/Development/CONTRIBUTING.md)**
+- **[Contributing guide](https://github.com/tannergolden/.github/blob/HEAD/CONTRIBUTING.md)**
   for the standards covering changes and pull requests.
 - **Closed issues** for answers already given; search them before opening a new one.
 
@@ -63,7 +63,7 @@ Most questions are answered faster by the repository itself than by waiting for 
 These projects are maintained on a **best-effort basis**. Complete, well-formed reports get the
 fastest answers. The issue forms exist precisely to collect what a responder needs on the first
 pass. Security reports follow the coordinated process in the
-[Security Policy](https://github.com/tannergolden/.github/blob/Development/SECURITY.md) and are
+[Security Policy](https://github.com/tannergolden/.github/blob/HEAD/SECURITY.md) and are
 prioritized above everything else.
 
 There is no paid support tier and no guaranteed response time.

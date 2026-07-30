@@ -155,10 +155,10 @@ This is a **mandated policy**, not a preference:
 
 ## 🔗 See also
 
-- [Code of Conduct](https://github.com/tannergolden/.github/blob/Development/CODE_OF_CONDUCT.md)
-- [Security Policy](https://github.com/tannergolden/.github/blob/Development/SECURITY.md)
-- [Support](https://github.com/tannergolden/.github/blob/Development/SUPPORT.md)
-- [Governance](https://github.com/tannergolden/.github/blob/Development/GOVERNANCE.md)
+- [Code of Conduct](https://github.com/tannergolden/.github/blob/HEAD/CODE_OF_CONDUCT.md)
+- [Security Policy](https://github.com/tannergolden/.github/blob/HEAD/SECURITY.md)
+- [Support](https://github.com/tannergolden/.github/blob/HEAD/SUPPORT.md)
+- [Governance](https://github.com/tannergolden/.github/blob/HEAD/GOVERNANCE.md)
 
 ---
 

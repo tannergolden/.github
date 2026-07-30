@@ -51,7 +51,7 @@ than with any individual's preference.
 | :--------------------- | :--------------------------------------- | :-------------------------------------------------------------------------------------------- |
 | **Maintainer**         | Named in the repository's `CODEOWNERS`   | Review and merge pull requests, cut releases, steward security response, administer settings. |
 | **Contributor**        | Anyone who opens a pull request or issue | Follow the contributing guidelines; respond to review feedback.                               |
-| **Security responder** | A Maintainer on rotation                 | Triage private reports per the [security policy](https://github.com/tannergolden/.github/blob/Development/SECURITY.md) within the stated timelines. |
+| **Security responder** | A Maintainer on rotation                 | Triage private reports per the [security policy](https://github.com/tannergolden/.github/blob/HEAD/SECURITY.md) within the stated timelines. |
 
 Maintainers are added by consensus of the existing Maintainers after a sustained record of quality
 contributions, and are recorded in `CODEOWNERS`. Once populated, that file is the single source of
@@ -99,11 +99,11 @@ Quality is enforced by process, not trust:
 ## 🌱 Onboarding New Contributors
 
 - Start with the
-  [Contributing Guidelines](https://github.com/tannergolden/.github/blob/Development/CONTRIBUTING.md).
+  [Contributing Guidelines](https://github.com/tannergolden/.github/blob/HEAD/CONTRIBUTING.md).
 - Good entry points are issues labeled **`good first issue`** and **`help wanted`**: small,
   well-scoped tasks that need no deep context.
 - Ask questions via
-  [Support](https://github.com/tannergolden/.github/blob/Development/SUPPORT.md).
+  [Support](https://github.com/tannergolden/.github/blob/HEAD/SUPPORT.md).
 
 ---
 
