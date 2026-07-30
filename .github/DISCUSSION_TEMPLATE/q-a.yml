@@ -83,20 +83,16 @@ body:
   - type: textarea
     id: actual
     attributes:
-      label: '❗ Actual behavior'
-      description: 'What happened instead.'
+      label: '❗ Actual behavior (if troubleshooting)'
+      description: 'What happened instead. Leave blank if nothing has gone wrong yet.'
       placeholder: 'Observed behavior, error states, or constraints.'
-    validations:
-      required: true
 
   - type: textarea
     id: attempted
     attributes:
-      label: '🧪 What you tried'
+      label: '🧪 What you tried (if anything)'
       description: 'Steps, docs followed, or approaches attempted.'
       placeholder: "- Tried A…\n- Tried B…\n- Still blocked because…"
-    validations:
-      required: true
 
   - type: textarea
     id: repro
