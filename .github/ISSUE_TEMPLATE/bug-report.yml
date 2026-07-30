@@ -135,7 +135,7 @@ body:
     id: branch_commit
     attributes:
       label: '🔖 Branch / Commit SHA'
-      placeholder: 'Development|Preview|Release / abcdef1'
+      placeholder: '<branch> / abcdef1'
 
   - type: input
     id: backend_environment
