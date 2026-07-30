@@ -24,7 +24,7 @@ body:
         **Don’t use this template for:**
         - Product bugs or broken features → use 🐛 Bug Report
         - Usability or design improvements → use 📝 Feedback Report
-        - Documentation gaps or errors → use 📖 Documentation Report
+        - Documentation gaps or errors → use 📚 Documentation Report
         - Accessibility-specific issues → use ♿ Accessibility Report
         - New functionality requests → use ✨ Feature Request
         - Security vulnerabilities → follow SECURITY.md (responsible disclosure)

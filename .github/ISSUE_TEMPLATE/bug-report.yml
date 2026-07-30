@@ -24,7 +24,7 @@ body:
         **Don’t use this template for:**
         - Usability or design suggestions → use 📝 Feedback Report
         - Performance concerns (lag, memory usage) → use 🚀 Performance Report
-        - Documentation issues → use 📖 Documentation Report
+        - Documentation issues → use 📚 Documentation Report
         - Accessibility-specific problems → use ♿ Accessibility Report
         - Feature ideas or enhancements → use ✨ Feature Request
         - Security vulnerabilities → follow SECURITY.md (responsible disclosure)
