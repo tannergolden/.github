@@ -5,8 +5,19 @@
 # These forms are served as ACCOUNT-WIDE DEFAULTS to every repository that does
 # not ship its own .github/ISSUE_TEMPLATE/. GitHub never substitutes placeholders
 # in contact links, so the URLs below intentionally point at this repository -
-# they are a working central intake from anywhere. A repository that wants its
-# own routing should ship its own config.yml, which overrides this one entirely.
+# they are a working central intake from anywhere.
+#
+# Overriding is ALL OR NOTHING, and this file is part of the set:
+#
+#   "if a repository has any files in its own .github/ISSUE_TEMPLATE folder,
+#    such as issue templates or a config.yml file, none of the contents of the
+#    default .github/ISSUE_TEMPLATE folder will be used"
+#   -- docs.github.com, Creating a default community health file
+#
+# So a repository that ships its own config.yml to change one contact link also
+# stops inheriting all six issue forms, and ends up with a chooser holding two
+# links and nothing to file. To re-route only the links, copy the forms across
+# too. This differs from the Markdown defaults, which are decided per file.
 #
 # Deliberately NOT shipped here: a public "Vulnerability Report" issue form.
 # A default form appears in PUBLIC repositories too, where filing one would
