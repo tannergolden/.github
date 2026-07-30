@@ -30,16 +30,17 @@ _Ask once. Ask in the right place._
 
 ## 🧭 Pick Your Channel
 
-| You have…                  | Go to                                                                                                                                         |
-| :------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------- |
-| A "how do I…?" question    | 💬 **Discussions → Q&A** (a guided form collects the context answerers need)                                                                  |
-| A reproducible bug         | 🐛 **Issues → Bug Report**                                                                                                                    |
-| A feature idea             | ✨ **Issues → Feature Request** (or 🧠 Discussions → Ideas to explore first)                                                                  |
-| A documentation gap        | 📚 **Issues → Documentation Report**                                                                                                          |
-| A performance problem      | 🚀 **Issues → Performance Report**                                                                                                            |
-| An accessibility barrier   | ♿ **Issues → Accessibility Report**                                                                                                          |
-| A setup or tooling problem | 🧰 **Discussions → Tooling & Setup** (or Q&A where that category does not exist)                                                                                                          |
-| A security vulnerability   | 🛡️ **[Security Policy](https://github.com/tannergolden/.github/blob/HEAD/SECURITY.md)**: private disclosure only, never a public issue |
+| You have…                    | Go to                                                                                                                                  |
+| :--------------------------- | :------------------------------------------------------------------------------------------------------------------------------------- |
+| A "how do I…?" question      | 💬 **Discussions → Q&A** (a guided form collects the context answerers need)                                                           |
+| A reproducible bug           | 🐛 **Issues → Bug Report**                                                                                                             |
+| A feature idea               | ✨ **Issues → Feature Request** (or 🧠 Discussions → Ideas to explore first)                                                           |
+| Usability or design feedback | 📝 **Issues → Feedback Report**                                                                                                        |
+| A documentation gap          | 📚 **Issues → Documentation Report**                                                                                                   |
+| A performance problem        | 🚀 **Issues → Performance Report**                                                                                                     |
+| An accessibility barrier     | ♿ **Issues → Accessibility Report**                                                                                                   |
+| A setup or tooling problem   | 🧰 **Discussions → Tooling & Setup** (or Q&A where that category does not exist)                                                       |
+| A security vulnerability     | 🛡️ **[Security Policy](https://github.com/tannergolden/.github/blob/HEAD/SECURITY.md)**: private disclosure only, never a public issue |
 
 If a repository has Discussions disabled, open the closest-matching issue form instead; a
 maintainer will redirect it to the right channel.
