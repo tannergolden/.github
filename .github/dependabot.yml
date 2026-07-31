@@ -17,10 +17,15 @@
 # action, and the `build` prefix keeps the merged commit a Conventional
 # Commit.
 #
-# `dependencies` is the only label asked for, because Dependabot creates that
-# one when it is missing. The account's `type: build` label exists here only
-# after 🎯 Apply Standards has been run against this repository, and a label
-# that does not exist is a warning on every update.
+# THE SETTINGS BELOW ARE THE ACCOUNT'S, NOT THIS REPOSITORY'S. Every
+# repository that runs Dependabot runs the same configuration, cadence,
+# grouping and labels alike, so the decision is made once rather than drifting
+# into a slightly different file per repository.
+#
+# `dependencies` Dependabot creates when it is missing. `type: build` is part
+# of the account's label taxonomy, which a repository provisions by running
+# 🎯 Apply Standards once; until that runs here the label is simply absent,
+# and Dependabot warns and opens the pull request anyway.
 
 version: 2
 
@@ -36,6 +41,7 @@ updates:
       prefix: 'build'
       include: 'scope'
     labels:
+      - 'type: build'
       - 'dependencies'
     groups:
       github-actions:
