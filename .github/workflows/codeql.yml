@@ -1,0 +1,49 @@
+# Static analysis over this repository's own code.
+#
+# Two things here are worth analyzing. `scripts/validate-templates.py` decides
+# whether a malformed form ships to every repository on the account, and the
+# workflows in this directory run with credentials attached. Neither had a
+# reader: this repository has no build and no tests, and `validate.yml` checks
+# the forms rather than the code that checks them.
+#
+# Called, never copied. The scanner is published once in
+# tannergolden/standards and every repository calls the same one, so a fix
+# there arrives here without an edit here.
+#
+# PINNED TO A COMMIT RATHER THAN TO `@v1`. The moving major tag would change
+# what this repository runs without anyone reading the change. Dependabot
+# moves the pin instead, and the pull request it opens is where that gets
+# read.
+#
+# No `timeout-minutes` below, because a job that calls a reusable workflow
+# cannot carry one. The called workflow sets its own, per job.
+#
+# Languages are detected from the tree upstream, so nothing here declares one.
+# Analysis needs a public repository (or Advanced Security); this one is
+# public because the defaults would not otherwise be served, so the job runs.
+
+name: Security Audit
+
+on:
+  push:
+    branches: ['Development']
+  pull_request:
+  schedule:
+    - cron: '0 3 * * 1' # weekly, so a new query pack reaches untouched code
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  # An analysis in flight is never canceled: a partial upload would replace a
+  # complete one, and the next scheduled sweep is a week away.
+  group: codeql-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  codeql:
+    permissions:
+      actions: read # CodeQL resolves workflow run metadata during analysis
+      contents: read # walk the checkout to build the language matrix
+      security-events: write # upload CodeQL results to code scanning
+    uses: tannergolden/standards/.github/workflows/codeql.yml@a6ee0c23a1614b75a69353190dd7dd67faf59101 # v1.6.0

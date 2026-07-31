@@ -1,0 +1,43 @@
+# Keeps the pinned actions in this repository's own CI current.
+#
+# This file is NOT one of the defaults this repository serves. GitHub reads a
+# `dependabot.yml` only from the repository that owns it, so nothing here
+# reaches any other repository: it maintains the two workflows under
+# `.github/workflows/` and nothing else. Every repository that wants this
+# needs its own copy.
+#
+# WHY IT EXISTS AT ALL. The contributing guide this repository publishes asks
+# for pinned actions, and a pin nobody moves is a pin that holds one
+# eventually-vulnerable revision forever. The pin is the safety property;
+# this is what keeps it maintainable. Dependabot rewrites the commit and the
+# trailing version comment together, so the readable half cannot drift from
+# the revision it names.
+#
+# Grouped, so a month's updates arrive as one pull request rather than one per
+# action, and the `build` prefix keeps the merged commit a Conventional
+# Commit.
+#
+# `dependencies` is the only label asked for, because Dependabot creates that
+# one when it is missing. The account's `type: build` label exists here only
+# after 🎯 Apply Standards has been run against this repository, and a label
+# that does not exist is a warning on every update.
+
+version: 2
+
+updates:
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'monthly'
+      time: '07:00'
+      timezone: 'Etc/UTC'
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: 'build'
+      include: 'scope'
+    labels:
+      - 'dependencies'
+    groups:
+      github-actions:
+        patterns:
+          - '*'
