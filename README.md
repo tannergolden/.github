@@ -127,15 +127,25 @@ python3 scripts/validate-templates.py
 It checks what GitHub will not tell you about — that every form uses the `.yml` extension GitHub
 documents, that every discussion form is named for a real category slug, that no form claims the
 Polls category (which does not support forms at all), that the forms cross-reference each other by
-the right name, and that links are not pinned to a branch name. `.github/workflows/validate.yml`
-runs it, plus `markdownlint`, on every push. Both need to pass.
+the right name, and that links are not pinned to a branch name. It runs as the `lint` stage of
+`.github/workflows/checks.yml`, alongside `markdownlint`, on every push. Both need to pass.
 
-Two more pieces of infrastructure sit beside it, and neither is served to any other repository.
-`.github/workflows/codeql.yml` calls the scanner published in
-[tannergolden/standards](https://github.com/tannergolden/standards) over the validator, weekly and
-on every push; these workflows join the analysis when its pin moves to a release that detects
-GitHub Actions as a language. `.github/dependabot.yml` keeps their pinned actions current,
-grouped into one pull request a month, because a pin nobody moves holds one revision forever.
+The workflows here are triggers; the logic they call is published once in
+[tannergolden/standards](https://github.com/tannergolden/standards) and shared by every repository
+on the account. None of them is served to any other repository: GitHub inherits community health
+files, not workflows.
+
+| File                       | Calls                                                            |
+| :------------------------- | :--------------------------------------------------------------- |
+| `checks.yml`               | Lint, secret scanning, CodeQL and workflow lint, weekly and on every push |
+| `governance.yml`           | Pull request title and DCO sign-off validation                   |
+| `ci-failure-alert.yml`     | Opens an issue when a gate here fails, closes it on recovery      |
+| `dependabot-automerge.yml` | Approves and queues Dependabot's patch and minor updates          |
+
+`.github/dependabot.yml` keeps the pinned actions current, grouped into one pull request a month,
+because a pin nobody moves holds one revision forever. The job ids `ci`, `secrets` and `pr` are
+fixed: branch protection names a check `<job id> / <job name>`, so renaming one leaves protection
+waiting on a check that never reports.
 
 The house rules the checker cannot enforce:
 

@@ -1,0 +1,86 @@
+# The gates for this repository, all called from tannergolden/standards.
+#
+# ⚠️ THIS REPLACED A HAND-WRITTEN `validate.yml`. That file installed pyyaml
+# and ran two commands, which is precisely what `ci.yml` takes as inputs, so
+# the logic was a local copy of a shared thing. Calling it instead adds
+# spelling and link checking to the same run at no cost, and a fix upstream
+# arrives here without an edit.
+#
+# The validator itself stays local, because it is not shared logic: it checks
+# the form files THIS repository serves, and no other repository has them.
+#
+# ⚠️ THREE JOB IDS ARE LOAD-BEARING. A called workflow reports its check as
+# `<job id> / <job name>`, so branch protection is keyed to the id written
+# here. `ci`, `secrets` and `pr` are the ids the published rulesets expect.
+# Renaming one leaves protection waiting on a check that never reports, and a
+# skipped required check never concludes: it waits forever.
+#
+# ⚠️ THE `permissions:` ON EACH JOB IS A CEILING, NOT A GRANT. For a job that
+# calls a reusable workflow, the caller caps what the callee may request, and
+# anything it asks for beyond this fails the run before a single job starts.
+# Each job declares the union of what its callee's jobs ask for, and nothing
+# more.
+#
+# `pr` is absent here and lives in `governance.yml`, because the DCO and title
+# checks need `pull_request_target` and this file is not triggered on it.
+
+name: Checks
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: '0 3 * * 1' # weekly sweep of files nothing has touched
+  workflow_dispatch:
+
+concurrency:
+  # In-progress runs are never canceled, so a required check cannot vanish
+  # mid-merge. Later pushes wait their turn instead.
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions: {}
+
+jobs:
+  # RULESET-LOAD-BEARING JOB ID. Reports as 'ci / 🧪 Lint, Test & Build'.
+  ci:
+    permissions:
+      contents: read # read the repository
+      pull-requests: write # dependency review comments on a pull request
+    uses: tannergolden/standards/.github/workflows/ci.yml@v1
+    with:
+      # Both halves of the old validate.yml, in the stage built for them.
+      # GitHub drops a malformed form silently, so this is the only thing
+      # that fails loudly when a default breaks.
+      lint-command: >-
+        python3 -m pip install --disable-pip-version-check --quiet 'pyyaml==6.0.2' &&
+        python3 scripts/validate-templates.py &&
+        npx --yes markdownlint-cli2
+      # There is nothing to test or build here: the tree is documents and
+      # forms. Naming the stages empty is not the same as leaving them to a
+      # Makefile that does not exist, which would fail on purpose.
+      test-command: ''
+      build-command: ''
+      # No SPDX headers in a tree of community health documents; the root
+      # LICENSE carries the license.
+      reuse-check: false
+
+  # RULESET-LOAD-BEARING JOB ID. Reports as 'secrets / 🔍 Scan for Secrets'.
+  secrets:
+    permissions:
+      contents: read # full-history checkout for the secret scan
+      issues: write # one-time escalation issue when scanning is silently off
+    uses: tannergolden/standards/.github/workflows/gitleaks.yml@v1
+    secrets: inherit # zizmor: ignore[secrets-inherit] - first-party callee at the ref pinned above.
+
+  codeql:
+    permissions:
+      actions: read # CodeQL resolves workflow run metadata during analysis
+      contents: read # walk the checkout to build the language matrix
+      security-events: write # upload CodeQL results to code scanning
+    uses: tannergolden/standards/.github/workflows/codeql.yml@v1
+
+  lint:
+    permissions:
+      contents: read # read the repository
+    uses: tannergolden/standards/.github/workflows/lint-workflows.yml@v1

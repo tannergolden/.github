@@ -1,0 +1,35 @@
+# Opens an issue when a gate here fails, and closes it on recovery.
+#
+# Called from tannergolden/standards. This repository has no build and no
+# tests, and the files it holds are served to every repository on the account
+# the moment they merge, so a silently red gate is the failure mode worth
+# escalating: nothing else here would notice.
+#
+# ⚠️ THE `workflows:` LIST BELOW IS MATCHED BY WORKFLOW `name:`, NOT BY FILE
+# NAME. Rename a workflow's `name:` and this stops watching it, with no error
+# anywhere. The three below are every workflow in this directory that can
+# fail; `Automate Dependabot` is excluded deliberately, since its approval and
+# queue steps are best-effort by design and a repository setting that is off
+# is not an incident.
+
+name: CI Failure Alert
+
+on:
+  workflow_run:
+    workflows:
+      - 'Checks'
+      - 'Governance'
+      - 'Security Audit'
+    types: [completed]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.workflow_run.name }}-${{ github.event.workflow_run.head_branch }}
+  cancel-in-progress: false
+
+permissions: {}
+
+jobs:
+  alert:
+    permissions:
+      issues: write # open the escalation issue, and close it on recovery
+    uses: tannergolden/standards/.github/workflows/ci-failure-alert.yml@v1
