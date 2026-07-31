@@ -137,10 +137,10 @@ files, not workflows.
 
 | File                       | Calls                                                            |
 | :------------------------- | :--------------------------------------------------------------- |
-| `checks.yml`               | Lint, secret scanning, CodeQL and workflow lint, weekly and on every push |
+| `checks.yml`               | Lint, secret scanning, CodeQL and workflow lint, on every push   |
 | `governance.yml`           | Pull request title and DCO sign-off validation                   |
-| `ci-failure-alert.yml`     | Opens an issue when a gate here fails, closes it on recovery      |
-| `dependabot-automerge.yml` | Approves and queues Dependabot's patch and minor updates          |
+| `ci-failure-alert.yml`     | Opens an issue when a gate here fails, closes it on recovery     |
+| `dependabot-automerge.yml` | Approves and queues Dependabot's patch and minor updates         |
 
 `.github/dependabot.yml` keeps the pinned actions current, grouped into one pull request a month,
 because a pin nobody moves holds one revision forever. The job ids `ci`, `secrets` and `pr` are
