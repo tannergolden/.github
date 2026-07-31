@@ -1,0 +1,46 @@
+# Approves and queues Dependabot's patch and minor updates for the two
+# workflows in this directory. Major bumps are left for a human on purpose,
+# because a major is where breaking changes live.
+#
+# Called, never copied. The logic is published once in tannergolden/standards
+# and every repository on the account calls the same file, so this holds the
+# trigger and nothing else.
+#
+# PINNED TO A COMMIT RATHER THAN TO `@v1`, matching `codeql.yml` beside it.
+# The moving major tag would change what this repository runs without anyone
+# reading the change; Dependabot moves the pin instead, and the pull request
+# it opens is where that gets read.
+#
+# ⚠️ WHAT "QUEUED" MEANS DEPENDS ON THIS REPOSITORY'S SETTINGS, and the
+# defaults are the safe ones. Enabling auto-merge is best-effort: with
+# "Allow auto-merge" off, the approval still lands and the pull request simply
+# waits for a human, rather than the job failing. Where auto-merge is on, the
+# merge waits on whatever checks are required, and this repository has none
+# configured, so a queued update would land on the strength of `Validate` and
+# `Security Audit` having been asked for rather than required.
+#
+# The Dependabot author check lives in the called workflow, so nothing here
+# repeats it.
+#
+# No `timeout-minutes` below: a job that calls a reusable workflow cannot
+# carry one, and the called workflow sets its own.
+
+name: Automate Dependabot
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+permissions: {}
+
+concurrency:
+  group: dependabot-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+
+jobs:
+  dependabot:
+    permissions:
+      contents: write # allow the squash merge once required checks pass
+      pull-requests: write # approve the pull request
+    uses: tannergolden/standards/.github/workflows/dependabot-automerge.yml@a6ee0c23a1614b75a69353190dd7dd67faf59101 # v1.6.0
+    secrets: inherit # zizmor: ignore[secrets-inherit] - first-party callee at the ref pinned above.
