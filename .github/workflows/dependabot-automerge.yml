@@ -6,10 +6,10 @@
 # and every repository on the account calls the same file, so this holds the
 # trigger and nothing else.
 #
-# PINNED TO A COMMIT RATHER THAN TO `@v1`, matching `codeql.yml` beside it.
-# The moving major tag would change what this repository runs without anyone
-# reading the change; Dependabot moves the pin instead, and the pull request
-# it opens is where that gets read.
+# `@v1` IS THE PIN, matching `codeql.yml` beside it and every other
+# repository on the account. The tag is repointed at each release in the v1
+# line, so a fix upstream reaches here without a pull request in every
+# repository that calls it. A major is the one thing it never crosses.
 #
 # ⚠️ WHAT "QUEUED" MEANS DEPENDS ON THIS REPOSITORY'S SETTINGS, and the
 # defaults are the safe ones. Enabling auto-merge is best-effort: with
@@ -42,5 +42,5 @@ jobs:
     permissions:
       contents: write # allow the squash merge once required checks pass
       pull-requests: write # approve the pull request
-    uses: tannergolden/standards/.github/workflows/dependabot-automerge.yml@a6ee0c23a1614b75a69353190dd7dd67faf59101 # v1.6.0
+    uses: tannergolden/standards/.github/workflows/dependabot-automerge.yml@v1
     secrets: inherit # zizmor: ignore[secrets-inherit] - first-party callee at the ref pinned above.
