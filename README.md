@@ -132,8 +132,9 @@ runs it, plus `markdownlint`, on every push. Both need to pass.
 
 Two more pieces of infrastructure sit beside it, and neither is served to any other repository.
 `.github/workflows/codeql.yml` calls the scanner published in
-[tannergolden/standards](https://github.com/tannergolden/standards) over the validator and these
-workflows, weekly and on every push. `.github/dependabot.yml` keeps their pinned actions current,
+[tannergolden/standards](https://github.com/tannergolden/standards) over the validator, weekly and
+on every push; these workflows join the analysis when its pin moves to a release that detects
+GitHub Actions as a language. `.github/dependabot.yml` keeps their pinned actions current,
 grouped into one pull request a month, because a pin nobody moves holds one revision forever.
 
 The house rules the checker cannot enforce:

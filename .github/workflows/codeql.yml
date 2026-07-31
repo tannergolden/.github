@@ -19,6 +19,10 @@
 # cannot carry one. The called workflow sets its own, per job.
 #
 # Languages are detected from the tree upstream, so nothing here declares one.
+# TODAY THAT MEANS THE PYTHON AND NOTHING ELSE: the detection that emits
+# GitHub Actions as a language of its own landed after the release pinned
+# below, so these workflows join the analysis when Dependabot moves that pin.
+#
 # Analysis needs a public repository (or Advanced Security); this one is
 # public because the defaults would not otherwise be served, so the job runs.
 
