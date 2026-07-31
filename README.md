@@ -139,8 +139,11 @@ files, not workflows.
 | :------------------------- | :--------------------------------------------------------------- |
 | `checks.yml`               | Lint, secret scanning, CodeQL and workflow lint, on every push   |
 | `governance.yml`           | Pull request title and DCO sign-off validation                   |
-| `ci-failure-alert.yml`     | Opens an issue when a gate here fails, closes it on recovery     |
 | `dependabot-automerge.yml` | Approves and queues Dependabot's patch and minor updates         |
+
+There is deliberately no CI-failure escalation stub: it opens an issue when a gate fails, and
+Issues are disabled on this repository, which is the same reason `governance.yml` installs only
+the pull request job. A red gate here is read in the Actions tab.
 
 `.github/dependabot.yml` keeps the pinned actions current, grouped into one pull request a month,
 because a pin nobody moves holds one revision forever. The job ids `ci`, `secrets` and `pr` are
