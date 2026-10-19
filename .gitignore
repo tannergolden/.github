@@ -1,0 +1,13 @@
+# OS and editor noise
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Python bytecode from the validator in .github/scripts/
+__pycache__/
+*.py[cod]
+
+# The markdownlint run installs nothing here, but a local npm install would
+node_modules/

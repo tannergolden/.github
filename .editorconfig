@@ -1,5 +1,5 @@
 # Editor defaults for this repository.
-# Enforced by scripts/validate-templates.py, which fails on trailing whitespace
+# Enforced by .github/scripts/validate-templates.py, which fails on trailing whitespace
 # and on a missing final newline.
 
 root = true

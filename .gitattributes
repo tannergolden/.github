@@ -1,0 +1,22 @@
+# =============================================================================
+# Git attributes - line endings, diffs, and what counts as binary
+# =============================================================================
+# Git reads this file only from the repository that owns it, so it cannot be
+# shared and always lives here.
+# =============================================================================
+
+# Normalise every text file to LF, in the repository and in every checkout,
+# as .editorconfig asks of every editor.
+* text=auto eol=lf
+
+# Language-aware diff hunk headers.
+*.md   diff=markdown
+*.py   diff=python
+*.json diff=json
+
+# Images are binary, never diffed or normalised.
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.ico  binary

@@ -54,7 +54,7 @@ jobs:
       # that fails loudly when a default breaks.
       lint-command: >-
         python3 -m pip install --disable-pip-version-check --quiet 'pyyaml==6.0.2' &&
-        python3 scripts/validate-templates.py &&
+        python3 .github/scripts/validate-templates.py &&
         npx --yes markdownlint-cli2
       # There is nothing to test or build here: the tree is documents and
       # forms. Naming the stages empty is not the same as leaving them to a
@@ -64,6 +64,9 @@ jobs:
       # No SPDX headers in a tree of community health documents; the root
       # LICENSE carries the license.
       reuse-check: false
+      # Every document opens with the hidden frontmatter the documentation
+      # standard defines; a page that breaks it fails this check.
+      frontmatter: 'enforce'
 
   # RULESET-LOAD-BEARING JOB ID. Reports as 'secrets / 🔍 Scan for Secrets'.
   secrets:

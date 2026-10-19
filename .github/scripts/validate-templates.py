@@ -13,7 +13,7 @@ Rules are grouped by where they come from:
   C. HOUSE RULES     Conventions this repository publishes and must itself keep.
   D. LINKS           Link forms that survive a default-branch rename.
 
-Usage: python3 scripts/validate-templates.py [--quiet]
+Usage: python3 .github/scripts/validate-templates.py [--quiet]
 Exit status is 0 when every check passes and 1 when any ERROR is recorded.
 """
 
@@ -30,7 +30,7 @@ try:
 except ImportError:  # pragma: no cover - surfaced as a usage error, not a finding
     sys.exit("PyYAML is required: pip install pyyaml")
 
-REPO = Path(__file__).resolve().parent.parent
+REPO = Path(__file__).resolve().parents[2]
 ISSUE_DIR = REPO / ".github" / "ISSUE_TEMPLATE"
 DISCUSSION_DIR = REPO / ".github" / "DISCUSSION_TEMPLATE"
 
@@ -162,9 +162,14 @@ def line_of(path: Path, needle: str) -> int:
 
 
 def form_files(directory: Path) -> list[Path]:
+    # The chooser's config is no form, and neither is the README that logs the
+    # folder: GitHub lists a Markdown file as a template only when it opens with
+    # YAML front matter, and the README opens with an HTML comment.
     if not directory.is_dir():
         return []
-    return sorted(p for p in directory.iterdir() if p.is_file() and p.name != "config.yml")
+    return sorted(
+        p for p in directory.iterdir() if p.is_file() and p.name not in ("config.yml", "README.md")
+    )
 
 
 # ---------------------------------------------------------------------------

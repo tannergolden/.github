@@ -54,8 +54,8 @@ day one, without copying a single file.
 | `.github/DISCUSSION_TEMPLATE/`     | Category forms for Discussions                                        |
 
 That is the complete supported set: GitHub serves these file types as defaults and no others.
-Apart from this README, the `LICENSE`, and the tooling that checks the files above, the repository
-holds nothing else on purpose.
+Apart from this README, the `LICENSE`, each folder's README, and the tooling that checks the files
+above, the repository holds nothing else on purpose.
 
 ---
 
@@ -121,7 +121,7 @@ GitHub drops a malformed form **silently**: no error, no notification, just a ch
 stops offering it. Nothing else here builds or tests, so one command stands in for both:
 
 ```bash
-python3 scripts/validate-templates.py
+python3 .github/scripts/validate-templates.py
 ```
 
 It checks what GitHub will not tell you about — that every form uses the `.yml` extension GitHub
