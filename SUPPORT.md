@@ -1,8 +1,8 @@
 <!--
 title: '🙋 SUPPORT'
 description: 'The default support guide routing questions, bugs, and reports to the channel that answers them fastest.'
-tags: [support, community, issue-routing]
-category: community
+type: guide
+keywords: [community, issue-routing]
 -->
 
 <!-- markdownlint-disable MD041 -->

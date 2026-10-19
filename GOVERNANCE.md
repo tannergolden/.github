@@ -1,8 +1,8 @@
 <!--
 title: '🏛️ PROJECT GOVERNANCE'
 description: 'The default charter for decision-making, maintainer roles, and access continuity across this account.'
-tags: [governance, maintainers, access-continuity]
-category: community
+type: standard
+keywords: [maintainers, access-continuity]
 -->
 
 <!-- markdownlint-disable MD041 -->

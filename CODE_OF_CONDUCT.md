@@ -1,8 +1,8 @@
 <!--
 title: '📜 CODE OF CONDUCT'
 description: 'The default behavioral standards and enforcement ladder for every repository on this account.'
-tags: [code-of-conduct, community, enforcement]
-category: community
+type: standard
+keywords: [community, enforcement]
 -->
 
 <!-- markdownlint-disable MD041 -->

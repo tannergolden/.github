@@ -1,8 +1,8 @@
 <!--
 title: '🤝 CONTRIBUTING GUIDELINES'
 description: 'The default contribution workflow, commit standard, and pull request process for repositories owned by @tannergolden.'
-tags: [contributing, pull-requests, conventional-commits, code-quality]
-category: community
+type: guide
+keywords: [pull-requests, conventional-commits, code-quality]
 -->
 
 <!-- markdownlint-disable MD041 -->

@@ -1,8 +1,8 @@
 <!--
 title: '🛡️ SECURITY POLICY'
 description: 'The default private vulnerability reporting process, response targets, and baseline protections for this account.'
-tags: [security, vulnerability-reporting, responsible-disclosure]
-category: security
+type: guide
+keywords: [vulnerability-reporting, responsible-disclosure]
 -->
 
 <!-- markdownlint-disable MD041 -->

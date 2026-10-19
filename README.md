@@ -1,8 +1,8 @@
 <!--
 title: '🩺 COMMUNITY HEALTH DEFAULTS'
 description: 'How this repository serves account-wide default community health files to every repository on the account.'
-tags: [community-health, defaults, dot-github]
-category: docs
+type: index
+keywords: [dot-github]
 -->
 
 <!-- markdownlint-disable MD041 -->
