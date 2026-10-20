@@ -7,7 +7,9 @@ truly does not apply or mark it N/A.
   so make it accurate.
 - Branch: a short-lived <type>/<topic> (feat/*, fix/*, docs/*) into the
   repository's default branch.
-- Scope: one intent. Aim for under 300 lines and 10 files.
+- Scope: one intent, under 300 changed lines and at most 10 files.
+- AI help is welcome on the terms of the AI policy:
+  https://github.com/tannergolden/.github/blob/HEAD/CONTRIBUTING.md#-ai-assisted-contributions
 - Open as a Draft for early feedback; mark Ready for Review once CI is green.
 - Never paste secrets into code, logs, or screenshots.
 -->
@@ -59,6 +61,12 @@ truly does not apply or mark it N/A.
 - **Feature flag** (name + default):
 - **Dependencies** (linked PRs, migrations, config toggles):
 
+## 🤖 AI assistance
+
+- [ ] No AI assistance
+- [ ] AI-assisted: I read and stand behind every change, and each commit the AI shaped is co-authored
+- **What the AI did** (what it wrote, changed, or checked):
+
 ## 📚 Docs & release notes
 
 - [ ] Docs updated (link) or N/A:
@@ -67,12 +75,12 @@ truly does not apply or mark it N/A.
 ## ✅ Author checklist
 
 - [ ] One intent, sized for review
-- [ ] Conventional Commit **title**; commits **signed off** (`git commit -s`) where the repository requires DCO
+- [ ] Conventional Commit **title**; commits authored and **signed off** (`git commit -s`) by me, never by an AI
 - [ ] Local gates green
 - [ ] Tests added or updated for logic changes; documented above
 - [ ] No secrets committed; scanner alerts resolved
 - [ ] Docs updated when behavior or setup changed
-- [ ] Any AI-assisted work followed this repository's agent guidelines, where it has them
+- [ ] I read this repository's root `AGENTS.md`, and any AI-assisted work followed it
 - [ ] Targeting the default branch; ready to **squash merge** on green CI
 
 <!--
@@ -86,7 +94,8 @@ Reviewer rubric:
 
 <!--
 To credit co-authors, add "Co-authored-by: Full Name <email>" trailers (one
-per line, real values) to the merge commit message when squash-merging.
+per line, real values) to the merge commit message when squash-merging. An AI
+that shaped the change is credited the same way, never as the author.
 Listing them here helps whoever merges copy them over:
 Co-authored-by: Name <email@example.com>
 -->
