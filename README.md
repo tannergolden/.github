@@ -54,8 +54,8 @@ day one, without copying a single file.
 | `.github/DISCUSSION_TEMPLATE/`     | Category forms for Discussions                                         |
 
 That is the complete supported set: GitHub serves these file types as defaults and no others.
-Apart from this README, the `LICENSE`, each folder's README, and the tooling that checks the files
-above, the repository holds nothing else on purpose.
+Apart from this README, the `LICENSE`, this repository's own `AGENTS.md`, each folder's README, and
+the tooling that checks the files above, the repository holds nothing else on purpose.
 
 ---
 
@@ -93,6 +93,7 @@ repository needs are never kept here:
 - **`AGENTS.md`**: every repository carries its own at the root, a sealed block of universal rules
   for AI coding agents delivered and kept current by
   [tannergolden/intelligence](https://github.com/tannergolden/intelligence), then its own rules.
+  The one here governs work on this repository alone.
   The defaults here point people and agents at it, and `CONTRIBUTING.md` holds the AI policy those
   rules send agents to read.
 - **A licence**: each repository ships its own.
@@ -137,7 +138,7 @@ stops offering it. Nothing else here builds or tests, so one command stands in f
 python3 .github/scripts/validate-templates.py
 ```
 
-It checks what GitHub will not tell you about — that every form uses the `.yml` extension GitHub
+It checks what GitHub will not tell you about: that every form uses the `.yml` extension GitHub
 documents, that every discussion form is named for a real category slug, that no form claims the
 Polls category (which does not support forms at all), that the forms cross-reference each other by
 the right name, and that links are not pinned to a branch name. It runs as the `lint` stage of
@@ -148,11 +149,12 @@ The workflows here are triggers; the logic they call is published once in
 on the account. None of them is served to any other repository: GitHub inherits community health
 files, not workflows.
 
-| File                       | Calls                                                          |
-| :------------------------- | :------------------------------------------------------------- |
-| `checks.yml`               | Lint, secret scanning, CodeQL and workflow lint, on every push |
-| `governance.yml`           | Pull request title and DCO sign-off validation                 |
-| `dependabot-automerge.yml` | Approves and queues Dependabot's patch and minor updates       |
+| File                       | Calls                                                            |
+| :------------------------- | :--------------------------------------------------------------- |
+| `checks.yml`               | Lint, secret scanning, CodeQL and workflow lint, on every push   |
+| `governance.yml`           | Pull request title and DCO sign-off validation                   |
+| `dependabot-automerge.yml` | Approves and queues Dependabot's patch and minor updates         |
+| `intelligence-sync.yml`    | Proposes each release of the `AGENTS.md` block as a pull request |
 
 There is deliberately no CI-failure escalation stub: it opens an issue when a gate fails, and
 Issues are disabled on this repository, which is the same reason `governance.yml` installs only
