@@ -28,6 +28,14 @@ _Small diffs. Green gates. Shared standards._
 
 ---
 
+> [!IMPORTANT]
+> **Read the repository's root `AGENTS.md` first.** Every repository on this account has one: the
+> universal rules AI coding agents follow there, then the repository's own rules. It is written for
+> agents and worth a person's two minutes too. Using AI? The
+> [AI policy](#-ai-assisted-contributions) below says how.
+
+---
+
 ## 🎯 Our Philosophy
 
 We value **small, frequent, and high-quality** contributions that adhere to established patterns.
@@ -40,6 +48,7 @@ not accept "code dumps". Every line should be justified and tested.
 
 ### 1. Prepare Your Environment
 
+- Read the repository's root `AGENTS.md`, then its `README.md`.
 - Fork the repository (external contributors) or branch from it (maintainers).
 - Install dependencies using the repository's documented setup command. Most projects here
   standardize on a single entry point:
@@ -58,7 +67,7 @@ not accept "code dumps". Every line should be justified and tested.
 
 - **Target branch:** open pull requests against the repository's default branch unless its README
   says otherwise. Production/release branches are promoted to, never committed to directly.
-- **Naming convention:** use a descriptive prefix:
+- **Naming convention:** `<type>/<topic>`, where the type is one of the commit types below:
   - `feat/short-description`
   - `fix/issue-description`
   - `docs/what-changed`
@@ -76,6 +85,10 @@ and determine version numbers, so treat it as load-bearing rather than cosmetic.
 - **Format:** `type(scope): summary`
 - **Types:** `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`,
   `revert`, `security`
+- **Body:** say why the change was made, not only what it does.
+- **Trailers:** any `Co-Authored-By:` lines, then your `Signed-off-by:` as the last line (see
+  [AI-Assisted Contributions](#-ai-assisted-contributions) and the
+  [DCO sign-off](#1-opening-the-pr) below).
 
 ### Code Quality Checklist
 
@@ -122,11 +135,44 @@ This is a **mandated policy**, not a preference:
 
 ---
 
+## 🤖 AI-Assisted Contributions
+
+This is the AI policy for every repository that uses this guide. An AI agent reads it before its
+first commit or post in a repository; a person using one should read it too.
+
+**AI-assisted contributions are welcome when a person takes responsibility for them.** The rules
+that follow from that:
+
+- **A person owns the change.** Whoever opens the pull request has read what the AI produced,
+  stands behind it, and answers for it in review. The AI is a tool that person used, not the
+  contributor.
+- **The person is the author and signs off.** Every commit is authored with that person's own git
+  identity, never an AI's, and ends with that person's `Signed-off-by:`. The sign-off certifies the
+  Developer Certificate of Origin, which only a person can do. An agent that finds
+  `git config user.email` unset, or set to an AI, asks whose identity to use rather than guessing.
+- **The AI is credited as a co-author.** Each commit an AI shaped carries a `Co-Authored-By:`
+  trailer naming the model and its vendor's no-reply address, above the sign-off. A commit the
+  person wrote alone carries none.
+- **The pull request says what the AI did.** Tick the AI assistance box in the pull request
+  template and say, in a sentence or two, what the AI wrote, changed, or checked.
+- **Agents read `AGENTS.md` before anything else and follow it.** Its rules apply to every agent
+  working in the repository, alongside this guide.
+
+A commit an AI helped with ends like this:
+
+```text
+Co-Authored-By: <model> <vendor no-reply address>
+Signed-off-by: Your Name <you@example.com>
+```
+
+---
+
 ## 🌿 The Pull Request Process
 
 ### 1. Opening the PR
 
 - Target the default branch.
+- Keep each pull request to **one intent**, under 300 changed lines and at most 10 files.
 - Complete the pull request template in full; pull requests with an empty description may be closed.
 - **Sign off your commits (DCO).** Adding a `Signed-off-by` line certifies the
   [Developer Certificate of Origin](https://developercertificate.org/), meaning you wrote the
@@ -159,6 +205,9 @@ This is a **mandated policy**, not a preference:
 - [Security Policy](https://github.com/tannergolden/.github/blob/HEAD/SECURITY.md)
 - [Support](https://github.com/tannergolden/.github/blob/HEAD/SUPPORT.md)
 - [Governance](https://github.com/tannergolden/.github/blob/HEAD/GOVERNANCE.md)
+- [Universal rules for AI coding agents](https://github.com/tannergolden/intelligence), which
+  every repository's `AGENTS.md` carries
+- [Engineering standards](https://github.com/tannergolden/standards/blob/HEAD/docs/README.md)
 
 ---
 
