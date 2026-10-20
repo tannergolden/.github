@@ -83,6 +83,9 @@ officially representing the community in public spaces. This includes:
 - Posting via an official social media account.
 - Acting as an appointed representative at an online or offline event.
 
+Anything an AI agent posts or commits on someone's behalf is that person's conduct, and this Code
+of Conduct applies to it as if they had written it themselves.
+
 ---
 
 ## 📣 Reporting
