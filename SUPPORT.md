@@ -30,17 +30,18 @@ _Ask once. Ask in the right place._
 
 ## 🧭 Pick Your Channel
 
-| You have…                    | Go to                                                                                                                                  |
-| :--------------------------- | :------------------------------------------------------------------------------------------------------------------------------------- |
-| A "how do I…?" question      | 💬 **Discussions → Q&A** (a guided form collects the context answerers need)                                                           |
-| A reproducible bug           | 🐛 **Issues → Bug Report**                                                                                                             |
-| A feature idea               | ✨ **Issues → Feature Request** (or 🧠 Discussions → Ideas to explore first)                                                           |
-| Usability or design feedback | 📝 **Issues → Feedback Report**                                                                                                        |
-| A documentation gap          | 📚 **Issues → Documentation Report**                                                                                                   |
-| A performance problem        | 🚀 **Issues → Performance Report**                                                                                                     |
-| An accessibility barrier     | ♿ **Issues → Accessibility Report**                                                                                                   |
-| A setup or tooling problem   | 🧰 **Discussions → Tooling & Setup** (or Q&A where that category does not exist)                                                       |
-| A security vulnerability     | 🛡️ **[Security Policy](https://github.com/tannergolden/.github/blob/HEAD/SECURITY.md)**: private disclosure only, never a public issue |
+| You have…                    | Go to                                                                                                                                                        |
+| :--------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| A "how do I…?" question      | 💬 **Discussions → Q&A** (a guided form collects the context answerers need)                                                                                 |
+| A reproducible bug           | 🐛 **Issues → Bug Report**                                                                                                                                   |
+| A feature idea               | ✨ **Issues → Feature Request** (or 🧠 Discussions → Ideas to explore first)                                                                                 |
+| Usability or design feedback | 📝 **Issues → Feedback Report**                                                                                                                              |
+| A documentation gap          | 📚 **Issues → Documentation Report**                                                                                                                         |
+| A performance problem        | 🚀 **Issues → Performance Report**                                                                                                                           |
+| An accessibility barrier     | ♿ **Issues → Accessibility Report**                                                                                                                         |
+| A setup or tooling problem   | 🧰 **Discussions → Tooling & Setup** (or Q&A where that category does not exist)                                                                             |
+| A security vulnerability     | 🛡️ **[Security Policy](https://github.com/tannergolden/.github/blob/HEAD/SECURITY.md)**: private disclosure only, never a public issue                       |
+| An AI agent to set to work   | 🤖 **The repository's root `AGENTS.md`**, then the [AI policy](https://github.com/tannergolden/.github/blob/HEAD/CONTRIBUTING.md#-ai-assisted-contributions) |
 
 If a repository has Discussions disabled, open the closest-matching issue form instead; a
 maintainer will redirect it to the right channel.
@@ -52,6 +53,8 @@ maintainer will redirect it to the right channel.
 Most questions are answered faster by the repository itself than by waiting for a reply:
 
 - **`README.md`** for the quick start, requirements, and a map of the project.
+- **`AGENTS.md`** at the repository root for the rules every AI coding agent follows there, and
+  the repository's own conventions. Point your agent at it before anything else.
 - **The repository's own `docs/`** for deeper guides, where present.
 - **[Contributing guide](https://github.com/tannergolden/.github/blob/HEAD/CONTRIBUTING.md)**
   for the standards covering changes and pull requests.
