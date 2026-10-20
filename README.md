@@ -41,17 +41,17 @@ day one, without copying a single file.
 
 ## 📦 What's Inside
 
-| File                               | What it does                                                          |
-| :--------------------------------- | :-------------------------------------------------------------------- |
-| `CODE_OF_CONDUCT.md`               | Behavioral standards and the enforcement ladder                       |
-| `CONTRIBUTING.md`                  | Branching, commits, tests, coding style, and the pull request process |
-| `GOVERNANCE.md`                    | Who decides what, and how access survives any one person leaving      |
-| `SECURITY.md`                      | How to report a vulnerability privately, and what to expect back      |
-| `SUPPORT.md`                       | Which channel answers which kind of question                          |
-| `.github/FUNDING.yml`              | The Sponsor button                                                    |
-| `.github/pull_request_template.md` | Prefills every new pull request description                           |
-| `.github/ISSUE_TEMPLATE/`          | Structured issue forms, plus the chooser config (`config.yml`)        |
-| `.github/DISCUSSION_TEMPLATE/`     | Category forms for Discussions                                        |
+| File                               | What it does                                                           |
+| :--------------------------------- | :--------------------------------------------------------------------- |
+| `CODE_OF_CONDUCT.md`               | Behavioral standards and the enforcement ladder                        |
+| `CONTRIBUTING.md`                  | Branching, commits, tests, the AI policy, and the pull request process |
+| `GOVERNANCE.md`                    | Who decides what, and how access survives any one person leaving       |
+| `SECURITY.md`                      | How to report a vulnerability privately, and what to expect back       |
+| `SUPPORT.md`                       | Which channel answers which kind of question                           |
+| `.github/FUNDING.yml`              | The Sponsor button                                                     |
+| `.github/pull_request_template.md` | Prefills every new pull request description                            |
+| `.github/ISSUE_TEMPLATE/`          | Structured issue forms, plus the chooser config (`config.yml`)         |
+| `.github/DISCUSSION_TEMPLATE/`     | Category forms for Discussions                                         |
 
 That is the complete supported set: GitHub serves these file types as defaults and no others.
 Apart from this README, the `LICENSE`, each folder's README, and the tooling that checks the files
@@ -86,6 +86,19 @@ GitHub serves **only** the documents listed above as defaults. Two files here ar
 
 Both stay because they govern and explain the rest, not because they travel. Everything else in
 the repository inherits, which is the whole reason it is here.
+
+GitHub serves nothing beyond that set from a personal account's `.github`, so three things every
+repository needs are never kept here:
+
+- **`AGENTS.md`**: every repository carries its own at the root, a sealed block of universal rules
+  for AI coding agents delivered and kept current by
+  [tannergolden/intelligence](https://github.com/tannergolden/intelligence), then its own rules.
+  The defaults here point people and agents at it, and `CONTRIBUTING.md` holds the AI policy those
+  rules send agents to read.
+- **A licence**: each repository ships its own.
+- **Workflows and workflow templates**: GitHub offers workflow templates only from an
+  organization's `.github`; repositories here call the shared workflows in
+  [tannergolden/standards](https://github.com/tannergolden/standards) instead.
 
 ---
 
@@ -135,11 +148,11 @@ The workflows here are triggers; the logic they call is published once in
 on the account. None of them is served to any other repository: GitHub inherits community health
 files, not workflows.
 
-| File                       | Calls                                                            |
-| :------------------------- | :--------------------------------------------------------------- |
-| `checks.yml`               | Lint, secret scanning, CodeQL and workflow lint, on every push   |
-| `governance.yml`           | Pull request title and DCO sign-off validation                   |
-| `dependabot-automerge.yml` | Approves and queues Dependabot's patch and minor updates         |
+| File                       | Calls                                                          |
+| :------------------------- | :------------------------------------------------------------- |
+| `checks.yml`               | Lint, secret scanning, CodeQL and workflow lint, on every push |
+| `governance.yml`           | Pull request title and DCO sign-off validation                 |
+| `dependabot-automerge.yml` | Approves and queues Dependabot's patch and minor updates       |
 
 There is deliberately no CI-failure escalation stub: it opens an issue when a gate fails, and
 Issues are disabled on this repository, which is the same reason `governance.yml` installs only
