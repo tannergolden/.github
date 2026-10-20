@@ -20,6 +20,11 @@ _Every edit here lands in every repository._
 
 ---
 
+> [!NOTE]
+> **The universal rules come first, and they are not edited here.** The block below is delivered by
+> [tannergolden/intelligence](https://github.com/tannergolden/intelligence) and replaced by each
+> 🔁 Intelligence Sync. This repository's own rules follow it, from [Start here](#start-here) on.
+
 <!-- markdownlint-disable MD013 -->
 <!-- INTELLIGENCE:BEGIN sha256:17581db1e67fd033b97b69bc0843bb5a66c84d1d16e7748998a9f62e1ddc8126 -->
 
@@ -65,6 +70,19 @@ From CONSTITUTION.md in github.com/tannergolden/intelligence, which gives the re
 <!-- markdownlint-enable MD013 -->
 
 ---
+
+> [!IMPORTANT]
+> **Add this repository's own rules from here down.** A sync replaces only the block between the
+> `INTELLIGENCE` markers above, so anything written inside it is lost, and everything below is
+> kept. Put each rule in the section it belongs to:
+>
+> - A command or check to run: **Commands**
+> - What must be true before work counts as finished: **Definition of done**
+> - A convention this repository adds to the standards: **Conventions**
+> - A trap specific to this repository: **Gotchas**
+> - An action that needs the owner's approval first: **Ask first**
+> - A Default that applies differently here: **Overrides**, as an entry naming its rule ID, such as
+>   `WORK-001: ...`. An Invariant cannot be overridden.
 
 ## Start here
 
