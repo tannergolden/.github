@@ -25,6 +25,9 @@ body:
         - New functionality requests → use ✨ Feature Request
         - Security vulnerabilities → follow SECURITY.md (responsible disclosure)
 
+        > 🤖 **Filing with an AI agent's help?** It reads this repository's root `AGENTS.md` first.
+        > Check what it drafted before you submit: the report is yours.
+
   - type: textarea
     id: summary
     attributes:
