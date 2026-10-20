@@ -69,6 +69,10 @@ Please provide a factual summary to assist triage:
 - Steps to reproduce, ideally from a clean clone.
 - The potential impact, and any known mitigations or workarounds.
 
+If the vulnerability is an exposed credential, say where it is, never what it is: no token, key, or
+password goes into a report, even a private one. A finding an AI agent surfaces is reported by the
+person it works for, through this same private channel.
+
 ### 3. Response Timeline
 
 - **Acknowledgment**: expected within **24 hours**.
@@ -87,7 +91,8 @@ keep the community safe, so tell us how you would like to be credited when you r
 
 ## 🚫 Please Do Not
 
-- Open a public issue, discussion, or pull request describing the vulnerability.
+- Open a public issue, discussion, or pull request describing the vulnerability, or let an AI agent
+  open one for you.
 - Test against infrastructure you do not own, or in ways that degrade service for others.
 - Access, modify, or exfiltrate data that is not yours.
 
