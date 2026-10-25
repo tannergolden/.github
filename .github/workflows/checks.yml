@@ -50,7 +50,6 @@ jobs:
   ci:
     permissions:
       contents: read # read the repository
-      pull-requests: write # dependency review comments on a pull request
     uses: tannergolden/standards/.github/workflows/ci.yml@v1
     with:
       # Both halves of the old validate.yml, in the stage built for them.
