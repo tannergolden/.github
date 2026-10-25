@@ -149,12 +149,19 @@ The workflows here are triggers; the logic they call is published once in
 on the account. None of them is served to any other repository: GitHub inherits community health
 files, not workflows.
 
-| File                       | Calls                                                            |
-| :------------------------- | :--------------------------------------------------------------- |
-| `checks.yml`               | Lint, secret scanning, CodeQL and workflow lint, on every push   |
-| `governance.yml`           | Pull request title and DCO sign-off validation                   |
-| `dependabot-automerge.yml` | Approves and queues Dependabot's patch and minor updates         |
-| `intelligence-sync.yml`    | Proposes each release of the `AGENTS.md` block as a pull request |
+| File                       | Calls                                                                     |
+| :------------------------- | :------------------------------------------------------------------------ |
+| `checks.yml`               | Lint, secret scanning, CodeQL and workflow lint, on every push            |
+| `governance.yml`           | Pull request title and DCO sign-off validation                            |
+| `dependabot-automerge.yml` | Approves and queues Dependabot's patch and minor updates                  |
+| `intelligence-sync.yml`    | Proposes each release of the `AGENTS.md` block as a pull request          |
+| `apply-standards.yml`      | Applies the standards' settings and rulesets to the repositories you name |
+
+`apply-standards.yml` is the one that reaches past this repository. Run from the Actions tab, it
+applies the standards' repository settings, and the branch and tag rulesets if asked, to every
+repository named in its form, one job each, with the single `ADMIN_TOKEN` secret stored here: a
+fine-grained token on All repositories, with Administration read and write and Contents read. It
+previews by default, and changes nothing until it runs with dry-run off.
 
 There is deliberately no CI-failure escalation stub: it opens an issue when a gate fails, and
 Issues are disabled on this repository, which is the same reason `governance.yml` installs only

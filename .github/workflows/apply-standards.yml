@@ -1,0 +1,123 @@
+# Applies the standards' repository settings and rulesets to every repository
+# named in the dispatch form, from this one place, with one ADMIN_TOKEN.
+#
+# Each repository generated from tannergolden/path carries a 🎯 Apply Standards
+# stub of its own, which reads an ADMIN_TOKEN from its own secrets. This runs
+# the same two actions those stubs call, one job per repository, so a token
+# stored here once serves all of them, the repositories with no stub of their
+# own included.
+#
+# ⚠️ IT WRITES SETTINGS AND RULESETS ON OTHER REPOSITORIES. A dispatch is its
+# only trigger, and dry-run defaults on: read each repository's plan in its
+# job's summary before running it with dry-run off. Settings first, rulesets
+# second - a wrong setting is a checkbox, a wrong ruleset blocks every merge.
+#
+# ⚠️ THE TOKEN: a fine-grained token on All repositories, with Administration
+# read and write and Contents read, stored as this repository's ADMIN_TOKEN
+# secret. Labels are not applied here: each repository's ⚖️ Governance syncs
+# its own with its own token every week.
+#
+# A ruleset names status checks that a repository's workflows must report, and
+# is refused for a repository whose workflows cannot report them, so rulesets
+# belong on the repositories generated from the template. Every repository
+# here uses the published set; one that needs a settings or rulesets override
+# of its own runs its own stub instead.
+
+name: '🎯 Apply Standards'
+
+on:
+  workflow_dispatch:
+    inputs:
+      repositories:
+        description: 'Repositories under tannergolden to apply to, separated by spaces'
+        type: string
+        default: 'cheat dotfiles environment intelligence knowledge markdown play'
+      dry-run:
+        description: 'Preview only. Turn this OFF to actually apply anything.'
+        type: boolean
+        default: true
+      apply-settings:
+        description: 'Write the repository settings'
+        type: boolean
+        default: true
+      apply-rulesets:
+        description: 'Write the branch and tag rulesets'
+        type: boolean
+        default: false
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+permissions: {}
+
+jobs:
+  plan:
+    name: '🗺️ Plan'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions: {}
+    outputs:
+      repositories: ${{ steps.list.outputs.repositories }}
+    steps:
+      - name: '🛡️ Harden Runner'
+        uses: tannergolden/standards/.github/actions/harden@v1
+        with:
+          egress-policy: audit
+
+      # Names arrive from a form, so each is checked before it reaches a job,
+      # and a missing token stops the run here rather than once per repository.
+      - name: '🗺️ List the repositories'
+        id: list
+        env:
+          NAMES: ${{ inputs.repositories }}
+          HAVE_ADMIN: ${{ secrets.ADMIN_TOKEN != '' }}
+        run: |
+          set -euo pipefail
+          if [ "$HAVE_ADMIN" != "true" ]; then
+            echo "::error title=Admin token required::Settings and rulesets need a token with administration write. Add a fine-grained token on All repositories, with Administration: Read and write and Contents: Read, as this repository's ADMIN_TOKEN secret."
+            exit 1
+          fi
+          python3 - >> "$GITHUB_OUTPUT" <<'PY'
+          import json, os, re, sys
+          names = sorted(set(os.environ['NAMES'].split()))
+          bad = [n for n in names if not re.fullmatch(r'[A-Za-z0-9._-]+', n)]
+          if bad or not names:
+              print(f"::error title=Repositories::Not a repository name: {', '.join(bad) or 'none given'}", file=sys.stderr)
+              sys.exit(1)
+          print('repositories=' + json.dumps(names))
+          PY
+
+  apply:
+    name: '🎯 ${{ matrix.repository }}'
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions: {}
+    strategy:
+      # One repository's failure is its own: the rest still get their plan.
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        repository: ${{ fromJSON(needs.plan.outputs.repositories) }}
+    steps:
+      - name: '🛡️ Harden Runner'
+        uses: tannergolden/standards/.github/actions/harden@v1
+        with:
+          egress-policy: audit
+
+      - name: '⚙️ Apply Repository Settings'
+        if: ${{ inputs.apply-settings }}
+        uses: tannergolden/standards/.github/actions/apply-settings@v1
+        with:
+          token: ${{ secrets.ADMIN_TOKEN }}
+          repository: tannergolden/${{ matrix.repository }}
+          dry-run: ${{ inputs.dry-run }}
+
+      - name: '🛡️ Apply Rulesets'
+        if: ${{ inputs.apply-rulesets }}
+        uses: tannergolden/standards/.github/actions/apply-rulesets@v1
+        with:
+          token: ${{ secrets.ADMIN_TOKEN }}
+          repository: tannergolden/${{ matrix.repository }}
+          dry-run: ${{ inputs.dry-run }}

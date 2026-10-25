@@ -32,6 +32,9 @@ community health files, not workflows. `checks.yml` runs the [validator](../scri
 markdownlint as its lint stage, so a malformed form fails a check instead of vanishing from a
 chooser.
 
+`apply-standards.yml` is the one workflow here that acts on other repositories: it applies the
+standards' settings and rulesets to each repository named in its form, with one `ADMIN_TOKEN`.
+
 ---
 
 ## 📝 File Log
@@ -40,6 +43,7 @@ chooser.
 
 | Entry                                                  | Name                        | Triggers                                                                              | Purpose                                                                                                                                                                                       |
 | :----------------------------------------------------- | :-------------------------- | :------------------------------------------------------------------------------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`apply-standards.yml`](apply-standards.yml)           | &#x1F3AF; Apply Standards   | `workflow_dispatch`                                                                   | Applies the standards' repository settings and rulesets to every repository named in the dispatch form, from this one place, with one ADMIN_TOKEN.                                            |
 | [`checks.yml`](checks.yml)                             | Checks                      | `push` (`Development`), `pull_request`, `schedule` (`0 3 * * 1`), `workflow_dispatch` | The gates for this repository, all called from tannergolden/standards.                                                                                                                        |
 | [`dependabot-automerge.yml`](dependabot-automerge.yml) | Automate Dependabot         | `pull_request`                                                                        | Approves and queues Dependabot's patch and minor updates for the two workflows in this directory.                                                                                             |
 | [`governance.yml`](governance.yml)                     | Governance                  | `pull_request_target`                                                                 | Pull request validation, called from tannergolden/standards.                                                                                                                                  |
