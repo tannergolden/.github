@@ -22,6 +22,11 @@
 # belong on the repositories generated from the template. Every repository
 # here uses the published set; one that needs a settings or rulesets override
 # of its own runs its own stub instead.
+#
+# ⚠️ NEVER NAME A PRIVATE REPOSITORY HERE. This repository is public, and so
+# are its runs: each repository named in the form becomes a job whose name
+# and log anyone can read. A private repository applies the standards from its
+# own stub, whose runs stay as private as it is.
 
 name: '🎯 Apply Standards'
 
@@ -31,7 +36,7 @@ on:
       repositories:
         description: 'Repositories under tannergolden to apply to, separated by spaces'
         type: string
-        default: 'cheat dotfiles environment intelligence knowledge markdown play'
+        default: 'dotfiles environment intelligence knowledge markdown play'
       dry-run:
         description: 'Preview only. Turn this OFF to actually apply anything.'
         type: boolean
