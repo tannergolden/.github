@@ -147,6 +147,7 @@ commits, branches, pull requests and documents. What its files need beyond that:
 | `.github/FUNDING.yml`              | The Sponsor button                                                 |
 | `.github/scripts/`                 | The validator                                                      |
 | `.github/workflows/`               | This repository's own workflows, never served elsewhere            |
+| `docs/`                            | Its own prompts for AI agents, in `Prompts.md`, never served       |
 
 ## Gotchas
 
