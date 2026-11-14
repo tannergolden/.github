@@ -21,21 +21,59 @@ _Write it once. Inherit it everywhere._
 
 ---
 
-## 💡 What This Repository Is
+## 💡 What It Is
 
 GitHub gives a repository named **`.github`** a special job: any file it holds from a fixed,
 documented list is served as the **default** for every other repository on this account that does
-not ship its own copy.
+not ship its own copy. So a new repository starts with a real code of conduct, a real security
+policy and working issue forms on day one, without copying a single file.
 
-Nothing here is application code, and nothing here builds. Apart from this README and the
-`LICENSE`, every file in this repository exists to be served to other repositories, so a new
-repository starts with a real code of conduct, a real security policy, and working issue forms on
-day one, without copying a single file.
+- **Status**: Active. Changes here reach every repository on the account the moment they merge.
 
-> [!IMPORTANT]
-> **A repository's own file always wins.** These are fallbacks, not mandates. Drop a
-> `CONTRIBUTING.md` into any repository and it immediately overrides the one here, for that
-> repository only.
+---
+
+## 🚀 Quick Start
+
+Inherit the defaults and write nothing: that is the intended path. **A repository's own file always
+wins**, so when one genuinely differs (a different disclosure process, contribution workflow or
+support channel), copy the file into that repository and edit it there.
+
+---
+
+## 📖 Using It
+
+### ⚙️ How Inheritance Works
+
+1. **This repository must stay public.** Defaults are not served from a private `.github`, not
+   even to private repositories.
+2. **Files must live on the default branch.** A file on any other branch is inert.
+3. **Local beats default.** A Markdown document is decided file by file. The forms are decided per
+   directory: a repository that ships one issue form of its own stops inheriting the whole set.
+
+GitHub serves nothing else from a personal account's `.github`: not the `LICENSE`, not this
+README, not workflows, and not `AGENTS.md`. Every repository carries its own licence and its own
+`AGENTS.md`, and calls the shared workflows in
+[tannergolden/standards](https://github.com/tannergolden/standards).
+
+### 🛠️ Working On These Files
+
+GitHub drops a malformed form **silently**, so one command checks what it will not tell you about,
+and runs as the `lint` stage of `.github/workflows/checks.yml` beside `markdownlint`:
+
+```bash
+python3 .github/scripts/validate-templates.py
+```
+
+Keep the documents project-agnostic, use **absolute links** (a relative link resolves against the
+consuming repository), promise nothing a repository might not have, and prefer additive edits.
+The forms apply the standards' label taxonomy, which a repository gets by running
+**🎯 Apply Standards** once.
+
+`apply-standards.yml` is the one workflow here that reaches past this repository: dispatched from
+the Actions tab, it applies the standards' settings, and the branch and tag rulesets if asked, to
+every repository named in its form, with the `ADMIN_TOKEN` secret stored here. It previews by
+default and changes nothing until it runs with dry-run off.
+[`.github/workflows/README.md`](.github/workflows/README.md) logs every workflow here.
 
 ---
 
@@ -53,142 +91,31 @@ day one, without copying a single file.
 | `.github/ISSUE_TEMPLATE/`          | Structured issue forms, plus the chooser config (`config.yml`)         |
 | `.github/DISCUSSION_TEMPLATE/`     | Category forms for Discussions                                         |
 
-That is the complete supported set: GitHub serves these file types as defaults and no others.
-Apart from this README, the `LICENSE`, this repository's own `AGENTS.md`, each folder's README, and
-the tooling that checks the files above, the repository holds nothing else on purpose.
+That is the complete supported set. Beyond it the repository holds only this README, the
+`LICENSE`, its own `AGENTS.md`, each folder's README, and the tooling that checks the files above.
 
 ---
 
-## ⚙️ How Inheritance Works
+## 🤝 Getting Involved
 
-Three rules govern everything here:
-
-1. **This repository must stay public.** Defaults are not served from a private `.github`
-   repository, not even to private repositories.
-2. **Files must live on the default branch.** A file on a feature branch is inert.
-3. **Local beats default.** For the Markdown documents this is decided file by file: a repository
-   can ship its own `SECURITY.md` and still inherit everything else. The forms are decided per
-   _directory_: a repository that ships a single issue form of its own stops inheriting the whole
-   set, not just the form it replaced.
-
-Issue and discussion forms are path-locked and only work from `.github/ISSUE_TEMPLATE/` and
-`.github/DISCUSSION_TEMPLATE/`. The five Markdown documents may sit at the repository root, in
-`.github/`, or in `docs/`; they are kept at the root here for readability.
+- **Questions**: [`SUPPORT.md`](SUPPORT.md) says where to ask.
+- **A change**: [`CONTRIBUTING.md`](CONTRIBUTING.md) explains how, following the
+  [standards](https://github.com/tannergolden/standards/blob/HEAD/docs/README.md) by link,
+  and every contribution follows the [code of conduct](CODE_OF_CONDUCT.md).
+- **Who decides**: [`GOVERNANCE.md`](GOVERNANCE.md) names the maintainers.
 
 ---
 
-## 🚫 What Does _Not_ Inherit
+## 🛡️ Security
 
-GitHub serves **only** the documents listed above as defaults. Two files here are not among them:
-
-- `LICENSE`, explicitly unsupported as a default; every repository needs its own
-- `README.md`, including this one
-
-Both stay because they govern and explain the rest, not because they travel. Everything else in
-the repository inherits, which is the whole reason it is here.
-
-GitHub serves nothing beyond that set from a personal account's `.github`, so three things every
-repository needs are never kept here:
-
-- **`AGENTS.md`**: every repository carries its own at the root, a sealed block of universal rules
-  for AI coding agents delivered and kept current by
-  [tannergolden/intelligence](https://github.com/tannergolden/intelligence), then its own rules.
-  The one here governs work on this repository alone.
-  The defaults here point people and agents at it, and `CONTRIBUTING.md` holds the AI policy those
-  rules send agents to read.
-- **A licence**: each repository ships its own.
-- **Workflows and workflow templates**: GitHub offers workflow templates only from an
-  organization's `.github`; repositories here call the shared workflows in
-  [tannergolden/standards](https://github.com/tannergolden/standards) instead.
+Report a vulnerability privately, never in an issue: [`SECURITY.md`](SECURITY.md) says how, and
+how fast a fix follows.
 
 ---
 
-## 🏷️ Labels
+## ⚖️ Licence
 
-The forms here apply the **shared taxonomy** from
-[`tannergolden/standards`](https://github.com/tannergolden/standards): prefixed names such as
-`type: bug` and `status: needs triage`, which sort predictably and keep what a thing _is_ separate
-from the stage it is at. All sixteen forms declare a `type:` and `status: needs triage` at creation,
-and the two whose subject already implies an area declare that too: `area: ui/ux` for the
-Accessibility Report, `area: dx` for the tooling and setup category. The `area:` names offered as
-checkboxes in the other forms come from the same vocabulary but are read by a human at triage rather
-than applied automatically.
-
-That taxonomy is **not** part of a repository's stock label set. A repository provisions it by
-running **🎯 Apply Standards** once, which syncs `data/labels.yml` over the API, create-or-update
-and never pruning, so labels added by hand survive. Until that runs, a form naming a label the
-repository does not have still files the issue normally; it simply arrives without that label and
-gets triaged by hand.
-
-The stock labels a new repository is born with keep working alongside the taxonomy, and two of them
-carry platform behavior worth keeping: `good first issue` feeds GitHub's contributor discovery and
-the repository's `/contribute` page, and `help wanted` feeds community-discovery search.
-
----
-
-## 🛠️ Working On These Files
-
-Changes here reach every repository on the account the moment they merge, so treat them as
-production documents.
-
-GitHub drops a malformed form **silently**: no error, no notification, just a chooser that quietly
-stops offering it. Nothing else here builds or tests, so one command stands in for both:
-
-```bash
-python3 .github/scripts/validate-templates.py
-```
-
-It checks what GitHub will not tell you about: that every form uses the `.yml` extension GitHub
-documents, that every discussion form is named for a real category slug, that no form claims the
-Polls category (which does not support forms at all), that the forms cross-reference each other by
-the right name, and that links are not pinned to a branch name. It runs as the `lint` stage of
-`.github/workflows/checks.yml`, alongside `markdownlint`, on every push. Both need to pass.
-
-The workflows here are triggers; the logic they call is published once in
-[tannergolden/standards](https://github.com/tannergolden/standards) and shared by every repository
-on the account. None of them is served to any other repository: GitHub inherits community health
-files, not workflows.
-
-| File                       | Calls                                                                     |
-| :------------------------- | :------------------------------------------------------------------------ |
-| `checks.yml`               | Lint, secret scanning, CodeQL and workflow lint, on every push            |
-| `governance.yml`           | Pull request title and DCO sign-off validation                            |
-| `dependabot-automerge.yml` | Approves and queues Dependabot's patch and minor updates                  |
-| `intelligence-sync.yml`    | Proposes each release of the `AGENTS.md` block as a pull request          |
-| `apply-standards.yml`      | Applies the standards' settings and rulesets to the repositories you name |
-
-`apply-standards.yml` is the one that reaches past this repository. Run from the Actions tab, it
-applies the standards' repository settings, and the branch and tag rulesets if asked, to every
-repository named in its form, one job each, with the single `ADMIN_TOKEN` secret stored here: a
-fine-grained token on All repositories, with Administration read and write and Contents read. It
-previews by default, and changes nothing until it runs with dry-run off.
-
-There is deliberately no CI-failure escalation stub: it opens an issue when a gate fails, and
-Issues are disabled on this repository, which is the same reason `governance.yml` installs only
-the pull request job. A red gate here is read in the Actions tab.
-
-`.github/dependabot.yml` keeps the pinned actions current, grouped into one pull request a month,
-because a pin nobody moves holds one revision forever. The job ids `ci`, `secrets` and `pr` are
-fixed: branch protection names a check `<job id> / <job name>`, so renaming one leaves protection
-waiting on a check that never reports.
-
-The house rules the checker cannot enforce:
-
-- Keep the language **project-agnostic**. These render inside repositories with different stacks,
-  audiences, and maturity levels.
-- Use **absolute links**. A relative link resolves against the _consuming_ repository, where the
-  target usually does not exist.
-- **Promise nothing a repository might not have.** Hedge references to Makefiles, CI gates, and
-  Discussions categories; a default renders everywhere, including where those are absent.
-- Prefer **additive** edits. Tightening a rule here tightens it everywhere at once.
-
----
-
-## 🧭 For Repository Owners
-
-Inherit the defaults and write nothing; that is the intended path. Override only when a repository
-genuinely differs: a different disclosure process, a different contribution workflow, a different
-support channel. When you do override, copy the file into that repository and edit it there.
+The community health defaults are released under the terms in [LICENSE](/LICENSE).
 
 ---
 
@@ -200,6 +127,6 @@ support channel. When you do override, copy the file into that repository and ed
 
 <br />
 
-Built with ❤️ by [@tannergolden](https://github.com/tannergolden). Distributed under the MIT License.
+Built with ❤️ by [@tannergolden](https://github.com/tannergolden). Distributed under the terms in [LICENSE](/LICENSE).
 
 </div>
